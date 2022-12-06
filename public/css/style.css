@@ -1,0 +1,16 @@
+*{
+    font-family: "Poppins", sans-serif;
+    
+}
+.navbar{
+    background-color: #F1A661;
+}
+.jumbotron{
+    background-image: url("../images/jumbotron.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+}
+
