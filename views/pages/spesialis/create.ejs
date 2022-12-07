@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../master/header'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../../master/navbar'); %>
+</header>
+
+<main>
+
+    <form action="/spesialis" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="nama-spesialis" class="col-form-label">Nama :</label>
+            <input type="text" class="form-control" name="nama" id="nama-spesialis" value="<%= nama %>"> 
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</main>
+
+<footer>
+    <%- include('../../master/footer'); %>
+</footer>
+</body>
+</html>
