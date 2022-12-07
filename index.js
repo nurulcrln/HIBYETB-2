@@ -15,6 +15,9 @@ import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
 import HomepageRoute from './routes/HomepageRouter.js';
 import DoktersRoute from './routes/DoktersRoute.js';
+import LoginRoute from './routes/LoginRouter.js';
+import RegisterRoute from './routes/RegisterRouter.js';
+import DashboardRoute from './routes/DashboardRoute.js';
 
 const app = express();
 
@@ -36,6 +39,7 @@ app.use(HomepageRoute);
 app.use(LoginRoute);
 app.use(RegisterRoute);
 app.use(DoktersRoute);
+app.use(DashboardRoute);
 
 // app.get('/', (req, res) => {
 //   res.render('pages/homepage/home');
