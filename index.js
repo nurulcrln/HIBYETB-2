@@ -33,6 +33,8 @@ app.use(DokterRoute);
 app.use(ArtikelRoute);
 app.use(ReminderRoute);
 app.use(HomepageRoute);
+app.use(LoginRoute);
+app.use(RegisterRoute);
 app.use(DoktersRoute);
 
 // app.get('/', (req, res) => {

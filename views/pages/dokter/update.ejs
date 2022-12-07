@@ -1,72 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include('../master/header'); %>
+  <%- include('../../master/header'); %>
 </head>
 <body class="container">
 
 <header>
-  <%- include('../master/navbar'); %>
+  <%- include('../../master/navbar'); %>
 </header>
 
 
 <main>
-    <center>
-        <h3>Update Data</h3>
-    </center>
+  
+    <form action="" method="POST" enctype="multipart/form-data">
 
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card border-0 shadow rounded">
-                    <div class="card-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama:</label>
-                                <input type="text" name="nama" placeholder="Nama">
-                                </div>
-                            </div>
-                    
-                            <div class="form-group">
-                                <label class="font-weight-bold">Email</label>
-                                <input type="email" name="email" placeholder="Email">
-                            </div>
-                    
-                            <div class="form-group">
-                                <label class="font-weight-bold">Phone</label>
-                                <input type="number" name="phone" placeholder="Phone">
-                            </div>
-                    
-                            <div class="form-group">
-                                <label class="font-weight-bold">Spesialis</label>
-                                <input type="text" name="spesialis" placeholder="Spesialis">
-                            </div>
-                    
-                            <div class="form-group">
-                                <label class="font-weight-bold">Tempat Praktik</label>
-                                <input type="text" name="tempat_praktik" placeholder="Praktik">
-                            </div>
-                    
-                            <div class="form-group">
-                                <label class="font-weight-bold">Upload Image</label>
-                                <input type="file" name="image">
-                            </div>    
-                    
-                            <!-- Button -->                                      
-                            <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn btn-info">Update</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="nama-dokter" class="col-form-label">Nama :</label>
+            <input type="text" class="form-control" name="nama" id="nama-dokter" value="<%= nama %>"> 
         </div>
-    </div>
+
+        <div class="form-group">
+            <label for="email-dokter" class="col-form-label">Email :</label>
+            <input type="email" class="form-control" name="email" id="email-dokter" value="<%= email %>">
+        </div>
+
+        <div class="form-group">
+            <label for="phone-dokter" class="col-form-label">Phone :</label>
+            <input type="number" class="form-control" name="phone" id="phone-dokter" value="<%= phone %>">
+        </div>
+
+        <div class="form-group">
+            <label for="spesialis-dokter" class="col-form-label">Spesialis :</label>
+            <input type="text" class="form-control" name="spesialis" id="spesialis-dokter" value="<%= spesialis %>">
+        </div>
+
+        <div class="form-group">
+            <label for="praktik-dokter" class="col-form-label">Tempat Praktik :</label>
+            <input type="text" class="form-control" name="tempat_praktik" id="praktik-dokter" value="<%= tempat_praktik %>">
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="img-dokter" class="col-form-label">Upload Image</label>
+            <input type="file" class="form-control" name="image"  id="img-dokter" value="<%= url_foto %>">
+        </div>     -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a type="button" href="/dokterpage" class="btn btn-warning">Cancel</a>
+
+    </form>
+
 </main>
 
 <footer>
-  <%- include('../master/footer'); %>
+  <%- include('../../master/footer'); %>
 </footer>
 
 </body>
