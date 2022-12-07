@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 /* eslint-disable consistent-return */
@@ -13,6 +14,7 @@ import DokterRoute from './routes/DokterRoute.js';
 import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
 import HomepageRoute from './routes/HomepageRouter.js';
+import DoktersRoute from './routes/DoktersRoute.js';
 
 const app = express();
 
@@ -31,6 +33,7 @@ app.use(DokterRoute);
 app.use(ArtikelRoute);
 app.use(ReminderRoute);
 app.use(HomepageRoute);
+app.use(DoktersRoute);
 
 // app.get('/', (req, res) => {
 //   res.render('pages/homepage/home');

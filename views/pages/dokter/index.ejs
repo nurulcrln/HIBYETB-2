@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../../master/header'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../../master/navbar'); %>
+</header>
+
+<main>
+
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border-0 shadow rounded">
+                <div class="card-body">
+                    <!-- <a href="{{ route('blog.create') }}" class="btn btn-md btn-success mb-3">TAMBAH Data</a> -->
+
+                    <div class="col-md-3 col-lg-3 " align="left"> 
+                      <img alt="dokter" src="http://localhost:5000/public/images/dokter/<%=data[0].foto%>" class="img-circle img-responsive"> 
+                    </div>
+
+                    <div class=" col-md-9 col-lg-9 "> 
+                      <table class="table table-user-information">
+                        <tbody>
+                          <tr>
+                            <td>Nama:</td>
+                            <td><%=data[0].nama%></td>
+                          </tr>
+
+                          <tr>
+                            <td>Email:</td>
+                            <td><%=data[0].email%></td>
+                          </tr>
+
+                          <tr>
+                            <td>Phone:</td>
+                            <td><%=data[0].phone%></td>
+                          </tr>
+
+                          <tr>
+                            <td>spesialis:</td>
+                            <td><%=data[0].spesialis%></td>
+                          </tr>
+
+                          <tr>
+                            <td>Tempat Praktik:</td>
+                            <td><%=data[0].tempat_praktik%></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                      <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-info">update</button>
+                      </div>
+                      <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-info">delete</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+  <%- include('../../master/footer'); %>
+</footer>
+
+</body>
+</html>
