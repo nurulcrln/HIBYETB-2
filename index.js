@@ -12,7 +12,7 @@ import UserRoute from './routes/UserRoute.js';
 import DokterRoute from './routes/DokterRoute.js';
 import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
-import HomepageRoute from './routes/HomepageRoute.js';
+import HomepageRoute from './routes/HomepageRouter.js';
 
 const app = express();
 
@@ -31,6 +31,8 @@ app.use(DokterRoute);
 app.use(ArtikelRoute);
 app.use(ReminderRoute);
 app.use(HomepageRoute);
+app.use(LoginRoute);
+app.use(RegisterRoute);
 
 // app.get('/', (req, res) => {
 //   res.render('pages/homepage/home');
