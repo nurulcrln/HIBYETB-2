@@ -5,3 +5,20 @@
 .footer-login {
     margin-top: 12px;
 }
+
+.login-page {
+    background-image: url("../images/jumbotron.png");
+}
+
+.login-logo img {
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+
+.login-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+}
