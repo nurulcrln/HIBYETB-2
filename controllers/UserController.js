@@ -5,6 +5,10 @@
 /* eslint-disable no-console */
 import User from '../models/User.js';
 
+export const profile = async (req, res) => {
+  res.render('pages/user/user');
+};
+
 // Function untuk melihat semua data
 export const getUser = async (req, res) => {
   try {
