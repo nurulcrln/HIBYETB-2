@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 /* eslint-disable consistent-return */
@@ -12,7 +13,8 @@ import UserRoute from './routes/UserRoute.js';
 import DokterRoute from './routes/DokterRoute.js';
 import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
-import HomepageRoute from './routes/HomepageRoute.js';
+import HomepageRoute from './routes/HomepageRouter.js';
+import DoktersRoute from './routes/DoktersRoute.js';
 import LoginRoute from './routes/LoginRouter.js';
 import RegisterRoute from './routes/RegisterRouter.js';
 import DashboardRoute from './routes/DashboardRoute.js';
@@ -36,6 +38,7 @@ app.use(ReminderRoute);
 app.use(HomepageRoute);
 app.use(LoginRoute);
 app.use(RegisterRoute);
+app.use(DoktersRoute);
 app.use(DashboardRoute);
 
 // app.get('/', (req, res) => {
