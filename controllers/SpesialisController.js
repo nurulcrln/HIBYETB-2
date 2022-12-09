@@ -12,7 +12,6 @@ export const index = async (req, res) => {
   const rows = await Spesialis.findAll();
   res.render('pages/spesialis/index', { data: rows });
 };
-
 // Function Render Views : spesialis/create.ejs
 export const create = async (req, res) => {
   res.render('pages/spesialis/create', { nama: '' });
