@@ -55,11 +55,4 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // To parse cookies from the HTTP Request
 app.use(cookieParser());
 
-// app.engine('hbs', exphbs.engine({
-//   extname: '.hbs',
-//   defaultLayout: false,
-// }));
-
-// app.set('view engine', 'hbs');
-
 app.listen(5000, () => console.log('Server Up and Running...'));
