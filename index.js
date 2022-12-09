@@ -7,6 +7,10 @@
 import express from 'express';
 import FileUpload from 'express-fileupload';
 import cors from 'cors';
+// import exphbs from 'express-handlebars';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+
 // import expressLayouts from 'express-ejs-layouts';
 import SpesialisRoute from './routes/SpesialisRoute.js';
 import UserRoute from './routes/UserRoute.js';
@@ -15,11 +19,17 @@ import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
 import HomepageRoute from './routes/HomepageRoute.js';
 import DoktersRoute from './routes/DoktersRoute.js';
-import LoginRoute from './routes/LoginRoute.js';
-import RegisterRoute from './routes/RegisterRoute.js';
+// import LoginRoute from './routes/LoginRoute.js';
+// import RegisterRoute from './routes/RegisterRoute.js';
 import DashboardRoute from './routes/DashboardRoute.js';
 
 const app = express();
+
+// To support URL-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// To parse cookies from the HTTP Request
+app.use(cookieParser());
 
 // set view engine
 // app.use(expressLayouts);
@@ -36,13 +46,22 @@ app.use(DokterRoute);
 app.use(ArtikelRoute);
 app.use(ReminderRoute);
 app.use(HomepageRoute);
-app.use(LoginRoute);
-app.use(RegisterRoute);
+// app.use(LoginRoute);
+// app.use(RegisterRoute);
 app.use(DoktersRoute);
 app.use(DashboardRoute);
 
-// app.get('/', (req, res) => {
-//   res.render('pages/homepage/home');
-// });
+// To support URL-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// To parse cookies from the HTTP Request
+app.use(cookieParser());
+
+// app.engine('hbs', exphbs.engine({
+//   extname: '.hbs',
+//   defaultLayout: false,
+// }));
+
+// app.set('view engine', 'hbs');
 
 app.listen(5000, () => console.log('Server Up and Running...'));
