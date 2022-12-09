@@ -11,7 +11,6 @@ import {
   deleteUser,
   create,
   login,
-  register,
   loginProcess,
   loginProtected,
 } from '../controllers/UserController.js';
@@ -23,9 +22,9 @@ router.get('/user/:id', getUserById);
 router.post('/user', createUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
-router.post('/register', create);
+router.post('/createregister', createUser);
 router.post('/login', loginProcess);
 router.get('/login', login);
-router.get('/register', register);
+router.get('/register', create);
 router.get('/protected', loginProtected);
 export default router;

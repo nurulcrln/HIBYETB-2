@@ -12,9 +12,9 @@ const app = express();
 export const profile = async (req, res) => {
   res.render('pages/user/user');
 };
-export const register = async (req, res) => {
-  res.render('pages/register/register', { message: '' });
-};
+// export const register = async (req, res) => {
+//   res.render('pages/register/register', { message: '' });
+// };
 export const login = async (req, res) => {
   res.render('pages/login/login', { message: '' });
 };
@@ -89,6 +89,7 @@ export const create = async (req, res) => {
     phone: '',
     password: '',
     role: 'user',
+    message: '',
   });
 };
 
@@ -131,38 +132,46 @@ export const createUser = (req, res) => {
 
   if (password === confirmPassword) {
     // Check if user with the same email is also registered
-    const user = User.findAll({
+    // const rows = User.findAll();
+    // const user = () => {
+    //   if (rows.email === email) {
+    //     return true;
+    //   }
+    // };
+    const hashPassword = getHashedPassword(password);
+    const user = User.findOne({
       where: {
         email: req.body.email,
       },
     });
-
     if (user) {
       res.render('pages/register/register', {
         message: 'User already registered.',
         messageClass: 'alert-danger',
       });
-
-      return;
+    } else {
+      try {
+        User.create({
+          username,
+          email,
+          nik,
+          age,
+          phone,
+          password: hashPassword,
+          role,
+        });
+        res.redirect('/login');
+        // }
+        res.status(201).json({ msg: 'User Created Successfuly' });
+      } catch (error) {
+        console.log(error.message);
+      }
     }
-    const hashPassword = getHashedPassword(password);
-
-    try {
-      User.create({
-        username,
-        email,
-        nik,
-        age,
-        phone,
-        password: hashPassword,
-        role,
-      });
-      res.redirect('/login');
-      // }
-      res.status(201).json({ msg: 'User Created Successfuly' });
-    } catch (error) {
-      console.log(error.message);
-    }
+  } else {
+    res.render('pages/register/register', {
+      message: 'Password does not match.',
+      messageClass: 'alert-danger',
+    });
   }
 };
 // Function untuk mengupdate data
