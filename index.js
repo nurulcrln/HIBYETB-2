@@ -12,7 +12,9 @@ import UserRoute from './routes/UserRoute.js';
 import DokterRoute from './routes/DokterRoute.js';
 import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
-import HomepageRoute from './routes/HomepageRouter.js';
+import HomepageRoute from './routes/HomepageRoute.js';
+import LoginRoute from './routes/LoginRouter.js';
+import RegisterRoute from './routes/RegisterRouter.js';
 
 const app = express();
 

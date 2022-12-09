@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../master/header'); %>
+</head>
+<body >
+
+<header>
+    <%- include('../../master/navbar'); %>
+</header>
+
+<main>
+
+    <form action="/reminder" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="tgl-mulai" class="col-form-label">Tanggal Mulai :</label>
+            <input type="date" class="form-control" name="tgl_mulai" id="tgl-mulai" value="<%= tgl_mulai %>"> 
+        </div>
+        <div class="form-group">
+            <label for="tgl-selesai" class="col-form-label">Tanggal Selesai :</label>
+            <input type="date" class="form-control" name="tgl_selesai" id="tgl-selesai" value="<%= tgl_selesai %>"> 
+        </div>
+        <div class="form-group">
+            <label for="jam-pagi" class="col-form-label">Jam Pagi :</label>
+            <input type="time" class="form-control" name="jam_pagi" id="jam-pagi" value="<%= jam_pagi %>"> 
+        </div>
+        <div class="form-group">
+            <label for="ket-pagi" class="col-form-label">Nama :</label>
+            <input type="text" class="form-control" name="ket_pagi" id="ket-pagi" value="<%= ket_pagi %>"> 
+        </div>
+        <div class="form-group">
+            <label for="jam-siang" class="col-form-label">Jam Siang :</label>
+            <input type="time" class="form-control" name="jam_siang" id="jam-siang" value="<%= jam_siang %>"> 
+        </div>
+        <div class="form-group">
+            <label for="ket-siang" class="col-form-label">Nama :</label>
+            <input type="text" class="form-control" name="ket_siang" id="ket-siang" value="<%= ket_siang %>"> 
+        </div>
+        <div class="form-group">
+            <label for="jam-malam" class="col-form-label">Jam Malam :</label>
+            <input type="time" class="form-control" name="jam_malam" id="jam-malam" value="<%= jam_malam %>"> 
+        </div>
+        <div class="form-group">
+            <label for="ket-malam" class="col-form-label">Nama :</label>
+            <input type="text" class="form-control" name="ket_malam" id="ket-malam" value="<%= ket_malam %>"> 
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</main>
+
+<footer>
+    <%- include('../../master/footer'); %>
+</footer>
+</body>
+</html>
