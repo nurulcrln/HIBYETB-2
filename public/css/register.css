@@ -41,4 +41,5 @@ input::-webkit-inner-spin-button {
 
 .alert {
     text-align: center;
+    color: red;
 }
