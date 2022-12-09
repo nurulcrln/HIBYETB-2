@@ -19,8 +19,6 @@ import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
 import HomepageRoute from './routes/HomepageRoute.js';
 import DoktersRoute from './routes/DoktersRoute.js';
-// import LoginRoute from './routes/LoginRoute.js';
-// import RegisterRoute from './routes/RegisterRoute.js';
 import DashboardRoute from './routes/DashboardRoute.js';
 import ProfileRoute from './routes/ProfileRoute.js';
 
@@ -58,12 +56,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // To parse cookies from the HTTP Request
 app.use(cookieParser());
-
-// app.engine('hbs', exphbs.engine({
-//   extname: '.hbs',
-//   defaultLayout: false,
-// }));
-
-// app.set('view engine', 'hbs');
 
 app.listen(5000, () => console.log('Server Up and Running...'));

@@ -5,6 +5,12 @@
 /* eslint-disable no-console */
 import Reminder from '../models/Reminder.js';
 
+export const index = async (req, res) => {
+  res.render('pages/reminder/index');
+};
+export const create = async (req, res) => {
+  res.render('pages/reminder/create');
+};
 // Function untuk melihat semua data
 export const getReminder = async (req, res) => {
   try {

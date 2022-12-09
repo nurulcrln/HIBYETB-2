@@ -4,6 +4,8 @@
 /* eslint-disable camelcase */
 import express from 'express';
 import {
+  index,
+  create,
   getReminder,
   getReminderById,
   createReminder,
@@ -12,7 +14,8 @@ import {
 } from '../controllers/ReminderController.js';
 
 const router = express.Router();
-
+router.get('/createreminder', create);
+router.get('/reminderpage', index);
 router.get('/reminder', getReminder);
 router.get('/reminder/:id', getReminderById);
 router.post('/reminder', createReminder);
