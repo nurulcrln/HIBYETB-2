@@ -1,3 +1,5 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable object-shorthand */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 /* eslint-disable consistent-return */
@@ -5,6 +7,28 @@
 import path from 'path';
 import fs from 'fs';
 import Artikel from '../models/Artikel.js';
+
+// Function Render Views : artikel/userartikel.ejs
+export const userArtikel = async (req, res) => {
+  const rows = await Artikel.findAll();
+  res.render('pages/artikel/userartikel', { data: rows });
+};
+
+// Function Render Views : artikel/index.ejs
+export const index = async (req, res) => {
+  const rows = await Artikel.findAll();
+  res.render('pages/artikel/index', { data: rows });
+};
+
+// Function Render Views : artikel/create.ejs
+export const create = async (req, res) => {
+  res.render('pages/artikel/create', {
+    judul: '',
+    deskripsi: '',
+    foto: '',
+    pengunggah: '',
+  });
+};
 
 // Function untuk melihat semua data
 export const getArtikel = async (req, res) => {
@@ -28,6 +52,7 @@ export const getArtikelById = async (req, res) => {
     console.log(error.message);
   }
 };
+
 // Function untuk menambahkan data
 export const createArtikel = (req, res) => {
   if (req.judul === null) return res.status(400).json({ msg: 'Nama kosong' });
@@ -56,12 +81,33 @@ export const createArtikel = (req, res) => {
         url_foto: url,
         pengunggah,
       });
+      res.redirect('/artikelpage');
       res.status(201).json({ msg: 'Artikel Created Successfuly' });
     } catch (error) {
       console.log(error.message);
     }
   });
 };
+
+// Function Render Views : artikel/update.ejs
+export const editArtikel = async (req, res) => {
+  const id = req.params.id;
+
+  const rows = await Artikel.findOne({
+    where: {
+      id: id,
+    },
+  });
+  res.render('pages/artikel/update', {
+    id: rows.id,
+    judul: rows.judul,
+    deskripsi: rows.deskripsi,
+    foto: rows.foto,
+    url_foto: rows.url_foto,
+    pengunggah: rows.pengunggah,
+  });
+};
+
 // Function untuk mengupdate data
 export const updateArtikel = async (req, res) => {
   const artikel = await Artikel.findOne({
@@ -109,6 +155,7 @@ export const updateArtikel = async (req, res) => {
         id: req.params.id,
       },
     });
+    res.redirect('/artikelpage');
     res.status(200).json({ msg: 'Artikel Updated Successfuly' });
   } catch (error) {
     console.log(error.message);
@@ -131,6 +178,7 @@ export const deleteArtikel = async (req, res) => {
         id: req.params.id,
       },
     });
+    res.redirect('/artikelpage');
     res.status(200).json({ msg: 'Artikel Deleted Successfuly' });
   } catch (error) {
     console.log(error.message);
