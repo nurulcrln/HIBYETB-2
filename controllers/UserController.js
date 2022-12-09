@@ -4,6 +4,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
+import cookieParser from 'cookie-parser';
 import crypto from 'crypto';
 import express from 'express';
 import User from '../models/User.js';
@@ -25,6 +26,23 @@ const getHashedPassword = (password) => {
   const hash = sha256.update(password).digest('base64');
   return hash;
 };
+
+export const logoutProcess = async (req, res) => {
+  const { email } = req.body;
+  const { password } = req.body;
+  
+  const setEmailCookie = () => {
+    document.cookie = email;
+    emailCookie = document.cookie;
+  };
+
+  const setPasswordCookie = () => {
+    document.cookie = password;
+    passwordCookie = document.cookie;
+  }
+
+  
+}
 
 export const loginProcess = async (req, res) => {
   const { email } = req.body;

@@ -22,6 +22,7 @@ import DoktersRoute from './routes/DoktersRoute.js';
 // import LoginRoute from './routes/LoginRoute.js';
 // import RegisterRoute from './routes/RegisterRoute.js';
 import DashboardRoute from './routes/DashboardRoute.js';
+import ProfileRoute from './routes/ProfileRoute.js';
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use(HomepageRoute);
 // app.use(RegisterRoute);
 app.use(DoktersRoute);
 app.use(DashboardRoute);
+app.use(ProfileRoute);
 
 // To support URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
