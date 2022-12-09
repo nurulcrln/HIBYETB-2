@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../master/header'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../../master/navbar'); %>
+    </header>
+    <main class="container">
+        <% if(data.length){ for(var i=0; i< data.length; i++) {%>
+            <div class="card" style="width: 18rem;">
+                <%= (i+1) %>
+                    <img src=" <%= data[i].url_foto%>" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= data[i].judul%>
+                        </h5>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+            </div>
+    </main>
+    <footer>
+        <%- include('../../master/footer'); %>
+    </footer>
+</body>
+
+</html>
