@@ -80,6 +80,23 @@ article:hover{
 .footer-login {
     margin-top: 12px;
 }
+
+.img-listitem{
+    border-radius: 50px;
+    width: 666px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 5px 5px 0px #9b9b9e;
+}
+.title-listitem{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    font-size: 50px;
+    text-shadow: 3px 2px 1px #E6E6FA;
+}
 @media(max-width:963px){
     #grid{
         display: grid;
@@ -90,6 +107,14 @@ article:hover{
     #grid{
         display: grid;
         grid-template-columns: repeat(1,1fr);
+    }
+    .img-listitem{
+        border-radius: 20px;
+        width: 150px;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
