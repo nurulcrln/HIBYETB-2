@@ -3,7 +3,7 @@
 <head>
   <%- include('../../master/header'); %>
 </head>
-<body class="container">
+<body>
 
 <header>
   <%- include('../../master/navbar'); %>
@@ -12,7 +12,7 @@
 
 <main>
 
-    <form action="/dokter" method="post" enctype="multipart/form-data">
+    <form action="/create" method="post" enctype="multipart/form-data">
         
         <div class="form-group">
             <label for="nama-dokter" class="col-form-label">Nama :</label>
@@ -25,25 +25,26 @@
         </div>
 
         <div class="form-group">
-            <label for="phone-dokter" class="col-form-label">Phone :</label>
-            <input type="number" class="form-control" name="phone" id="phone-dokter" value="<%= phone %>">
-        </div>
+          <label for="dokter" class="col-form-label">Spesialis :</label>
+          <input type="text" class="form-control" name="spesialis" id="dokter" value="<%= spesialis %>">
+      </div>
 
-        <div class="form-group">
-            <label for="spesialis-dokter" class="col-form-label">Spesialis :</label>
-            <input type="text" class="form-control" name="spesialis" id="spesialis-dokter" value="<%= spesialis %>">
-        </div>
+      <div class="form-group">
+        <label for="praktik-dokter" class="col-form-label">Tempat Praktik :</label>
+        <input type="text" class="form-control" name="tempat_praktik" id="praktik-dokter" value="<%= tempat_praktik %>">
+      </div>
 
-        <div class="form-group">
-            <label for="praktik-dokter" class="col-form-label">Tempat Praktik :</label>
-            <input type="text" class="form-control" name="tempat_praktik" id="praktik-dokter" value="<%= tempat_praktik %>">
-        </div>
+      <div class="form-group">
+        <label for="phone-dokter" class="col-form-label">Phone :</label>
+        <input type="number" class="form-control" name="phone" id="phone-dokter" value="<%= phone %>">
+      </div>
 
-        <!-- <div class="form-group">
-            <label for="img-dokter" class="col-form-label">Upload Image</label>
-            <input type="file" class="form-control" name="image"  id="img-dokter" value="<%= url_foto %>">
-        </div>     -->
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <label>Foto :</label>
+        <input type="file" class="form-control-file" name="foto" value="<%= foto %>">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 </main>
