@@ -88,7 +88,12 @@ article:hover{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 10px 5px 5px 0px #9b9b9e;
+    box-shadow: 10px 5px 5px 0px #D3D3D3;
+}
+.deskripsi-listitem{
+    font-family: 'Jost', sans-serif;
+    font-size: 25px;
+    text-align: justify;
 }
 .title-listitem{
     text-align: center;
@@ -97,24 +102,99 @@ article:hover{
     font-size: 50px;
     text-shadow: 3px 2px 1px #E6E6FA;
 }
+#back-listitem{
+    display: inline;
+    text-align: center;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: bold;
+    width: fit-content;
+}
 @media(max-width:963px){
     #grid{
         display: grid;
         grid-template-columns: repeat(2,1fr);
     }
 }
+@media(max-width:555px){
+    #img-listartikel{
+        object-fit: cover;
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+.title-listitem{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    font-size: 25px;
+    text-shadow: 3px 2px 1px #E6E6FA;
+}
+.img-listitem{
+    border-radius: 50px;
+    width: 300px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 5px 5px 0px #D3D3D3;
+}
+.deskripsi-listitem{
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    text-align: justify;
+}
+#back-listitem{
+    display: inline;
+    text-align: center;
+    margin-right: auto;
+    font-size: 15px;
+    font-weight: bold;
+    width: fit-content;
+}
+}
 @media(max-width:385px){
     #grid{
         display: grid;
         grid-template-columns: repeat(1,1fr);
     }
-    .img-listitem{
-        border-radius: 20px;
-        width: 150px;
+    #img-listartikel{
         object-fit: cover;
+        width: 150px;
+        height: 150px;
         display: block;
         margin-left: auto;
         margin-right: auto;
-    }
 }
-
+.title-listitem{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    text-shadow: 3px 2px 1px #E6E6FA;
+}
+.img-listitem{
+    border-radius: 10px;
+    width: 160px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 5px 5px 0px #D3D3D3;
+}
+.deskripsi-listitem{
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    text-align: justify;
+}
+#back-listitem{
+    display: inline;
+    text-align: center;
+    margin-right: auto;
+    font-size: 10px;
+    font-weight: bold;
+    width: fit-content;
+}
+}
