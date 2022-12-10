@@ -8,10 +8,18 @@ import path from 'path';
 import fs from 'fs';
 import Artikel from '../models/Artikel.js';
 
-// Function Render Views : artikel/userartikel.ejs
-export const userArtikel = async (req, res) => {
+export const listArtikel = async (req, res) => {
   const rows = await Artikel.findAll();
-  res.render('pages/artikel/userartikel', { data: rows });
+  res.render('pages/artikel/listartikel', { data: rows });
+};
+
+export const Modal = async (req, res) => {
+  const response = await Artikel.findOne({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.render('pages/artikel/listitem', { data: response });
 };
 
 // Function Render Views : artikel/index.ejs

@@ -14,7 +14,8 @@ import {
   createArtikel,
   updateArtikel,
   deleteArtikel,
-  userArtikel,
+  listArtikel,
+  Modal,
 } from '../controllers/ArtikelController.js';
 
 const router = express.Router();
@@ -22,7 +23,8 @@ router.get('/artikelpage', index);
 router.get('/createartikel', create); 
 router.get('/deleteartikel/:id', deleteArtikel); 
 router.get('/editartikel/:id', editArtikel); 
-router.get('/userartikel/:id', userArtikel); 
+router.get('/listartikel', listArtikel); 
+router.get('/listitem/:id', Modal); 
 
 router.get('/artikel', getArtikel);
 router.get('/artikel/:id', getArtikelById);

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../master/header'); %>
+</head>
+
+<body>
+    <main>
+        <div class="hero d-flex align-items-center">
+            <div class="container">
+                <div class="row ">
+                    <div class="col text-center">
+                        <h1 id="logo">HiByeTB</h1>
+                        <p>Website informasi TBC terlengkap, <br>forum diskusi terkait TBC, daftar dokter konsultasi
+                            TBC, <br>dan
+                            atur pengingat minum obat untuk penderita TBC</p>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" id="logo">HiByeTB</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+        <br>
+        <div id="grid">
+            <% if(data.length){ for(var i=0; i< data.length; i++) {%>
+                <article>
+                    <div>
+                        <div style="width: 20rem;">
+                            <center><img src=" <%= data[i].url_foto%>" id="img-listartikel" alt="" width="280px"
+                                    height="280px"></center>
+                            <div>
+                                <h5 class="title-artikel">
+                                    <%= data[i].judul%>
+                                </h5>
+                                <a href="/listitem/<%= data[i].id%>" class="btn btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <% } }else{ %>
+                    <div class="alert alert-danger" role="alert">
+                        Data Tidak Ditemukan !
+                    </div>
+                    <% } %>
+
+        </div>
+    </main>
+    <footer>
+        <%- include('../../master/footer'); %>
+    </footer>
+</body>
+
+</html>
