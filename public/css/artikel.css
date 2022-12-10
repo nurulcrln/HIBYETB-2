@@ -42,7 +42,7 @@
 }
 #grid > article {
     display: inline;
-    box-shadow: 10px 5px 5px 0px black;
+    box-shadow: 10px 5px 5px 0px #E6E6FA;
     border-radius: 30px;
     text-align: center;
     background: whitesmoke;
