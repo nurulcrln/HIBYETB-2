@@ -95,6 +95,71 @@
 }
 .doctor-content{
     padding: 25px;
+<<<<<<< HEAD
+=======
+}
+
+/* homepage-reminder */
+
+.img-reminder{
+    width: 600px;
+    padding-right: 0px;
+    
+}
+.reminder-text{
+    color: #E38B29;
+}
+.reminder-section {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.reminder-content{
+    padding: 25px;
+}
+/* Footer */
+footer{
+    background-color: #F1A661;
+    padding: 12px;
+    color: white;
+}
+/* Reminder */
+.clock{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 350px;
+    background: rgba(255,2555,255,0.05);
+    overflow: hidden;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255,2555,255,0.02);
+    border-left: 1px solid rgba(255,2555,255,0.02);
+    box-shadow: 5px 5px 30px rgba(255,2555,255,0.02);
+    display: flex;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inside{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 500px;
+    height: 250px;
+    border-top: 1px solid rgba(255,2555,255,0.02);
+    border-left: 1px solid rgba(255,2555,255,0.02);
+    box-shadow: 5px 5px 30px rgba(255,2555,255,0.02);
+    display: flex;
+>>>>>>> e455507e888d40de0698788d5a3f22998f2ebc5a
 }
 
 /* homepage-reminder */

@@ -2,11 +2,11 @@
 /* eslint-disable import/extensions */
 /* eslint-disable consistent-return */
 /* eslint-disable camelcase */
-import express from 'express';
-import { register } from '../controllers/RegisterController.js';
+// import express from 'express';
+// import { register } from '../controllers/RegisterController.js';
 
-const router = express.Router();
+// const router = express.Router();
 
-router.get('/register', register);
+// router.get('/register', register);
 
-export default router;
+// export default router;

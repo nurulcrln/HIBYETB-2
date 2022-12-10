@@ -31,9 +31,6 @@ export const getDokterById = async (req, res) => {
 };
 // Function untuk menambahkan data
 export const createDokter = (req, res) => {
-  if (req.nama === null) return res.status(400).json({ msg: 'Nama kosong' });
-  if (req.email === null) return res.status(400).json({ msg: 'Email kosong' });
-
   const { nama } = req.body;
   const { email } = req.body;
   const { spesialis } = req.body;
@@ -45,7 +42,8 @@ export const createDokter = (req, res) => {
   const fileName = file.md5 + ext;
   const url = `${req.protocol}://${req.get('host')}/images/dokter/${fileName}`;
   const allowedType = ['.png', '.jpg', '.jpeg'];
-
+  if (nama === null) return res.status(400).json({ msg: 'Nama kosong' });
+  if (email === null) return res.status(400).json({ msg: 'Email kosong' });
   if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: 'Invalid Images' });
   if (fileSize > 10000000) return res.status(422).json({ msg: 'Image must be less than 10 MB' });
 

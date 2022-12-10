@@ -8,6 +8,8 @@
 
 .login-page {
     background-image: url("../images/jumbotron.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .login-logo img {
@@ -32,6 +34,7 @@
     font-size: smaller;
 }
 
-.mb-1 {
-    font-size: smaller;
+.alert {
+    text-align: center;
+    color: red;
 }

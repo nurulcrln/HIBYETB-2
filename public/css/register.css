@@ -10,6 +10,8 @@ input::-webkit-inner-spin-button {
 
 .register-page {
     background-image: url("../images/jumbotron.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .register-logo img {
@@ -24,6 +26,8 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     gap: 18px;
     margin-bottom: 2px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 .footer-register {
@@ -32,4 +36,10 @@ input::-webkit-inner-spin-button {
 
 .card-body {
     border-radius: 25px;
+    padding-bottom: 10px;
+}
+
+.alert {
+    text-align: center;
+    color: red;
 }
