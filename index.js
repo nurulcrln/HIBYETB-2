@@ -18,7 +18,7 @@ import DokterRoute from './routes/DokterRoute.js';
 import ArtikelRoute from './routes/ArtikelRoute.js';
 import ReminderRoute from './routes/ReminderRoute.js';
 import HomepageRoute from './routes/HomepageRoute.js';
-import DoktersRoute from './routes/DoktersRoute.js';
+//import DoktersRoute from './routes/DoktersRoute.js';
 import DashboardRoute from './routes/DashboardRoute.js';
 import ProfileRoute from './routes/ProfileRoute.js';
 
@@ -47,7 +47,7 @@ app.use(ReminderRoute);
 app.use(HomepageRoute);
 // app.use(LoginRoute);
 // app.use(RegisterRoute);
-app.use(DoktersRoute);
+//app.use(DoktersRoute);
 app.use(DashboardRoute);
 app.use(ProfileRoute);
 

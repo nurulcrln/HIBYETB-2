@@ -73,9 +73,9 @@ article{
 }
 article:hover{
     display: inline;
-    -ms-transform: skew(2deg); /* Support IE 9 */
-    -webkit-transform: skew(2deg); /* support Safari */
-    transform: skew(2deg); /* Standard syntax */ 
+    -ms-transform: skew(1deg); /* Support IE 9 */
+    -webkit-transform: skew(1deg); /* support Safari */
+    transform: skew(1deg); /* Standard syntax */ 
 }
 .footer-login {
     margin-top: 12px;
