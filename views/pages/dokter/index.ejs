@@ -1,96 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <%- include('../../master/header'); %>
+    </head>
 <head>
-  <%- include('../../master/header'); %>
+    <%- include('../../dashboard-layout/header'); %>
 </head>
 <body>
 
-<header>
-  <%- include('../../master/navbar'); %>
-</header>
+    <div class="wrapper">
+        <%- include('../../dashboard-layout/navbar'); %>
+        <%- include('../../dashboard-layout/sidebar'); %>
 
-<main>
+        <main>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <a type="button" href="/createdokter" class="btn btn-sm btn-primary mb-1 mt-1"> Add Dokter</a>
-                <div class="card border-0 shadow rounded">
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>id</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Spesialis</th>
-                                <th>Tempat Praktik</th>
-                                <th>Foto</th>
-                                <th>Detail</th>
-                               
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <% if(data.length){
-                                    
-                                    for(var i = 0; i< data.length; i++) {%>  
-                                        <tr>
-                                            <th scope="row" class="text-center"><%= (i+1) %></th>
-                                            <td>
-                                                <%= data[i].id%>
-                                            </td>
-                                            <td>
-                                                <%= data[i].nama%>
-                                            </td>
-                                            <td>
-                                                <%= data[i].email%>
-                                            </td>
-                                            <td>
-                                                <%= data[i].phone%>
-                                            </td>
-                                            <td>
-                                                <%= data[i].spesialis%>
-                                            </td>
-                                            <td>
-                                                <%= data[i].tempat_praktik%></td>
-                                            <td>
-                                                <img src="<%= data[i].url_foto%>" width="90px">
-                                            </td>
-                                            <td class="text-center">
-                                                <a href="/editdokter/<%=data[i].id%>" class="btn btn-sm btn-primary">EDIT</a>
-                                                <% var id = data[i].id%>
-                                                <a onclick="return confirm('Anda yakin menghapus data ini?')" href="/deletedokter/<%=id%>"  class="btn btn-sm btn-danger">HAPUS</a>
-                                            </td>
-                                        </tr>
-                                    <% }
-                                    
-                                }else{ %>
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="alert alert-danger" role="alert">
-                                                Data Tidak Ditemukan !
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <% } %>    
-                            </tbody>
-                        </table>  
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a type="button" href="/createdokter" class="btn btn-sm btn-primary mb-1 mt-1"> Add Dokter</a>
+                        <div class="card border-0 shadow rounded">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>No</th>
+                                        <th>id</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Spesialis</th>
+                                        <th>Tempat Praktik</th>
+                                        <th>Foto</th>
+                                        <th>Detail</th>
+                                       
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if(data.length){
+                                            
+                                            for(var i = 0; i< data.length; i++) {%>  
+                                                <tr>
+                                                    <th scope="row" class="text-center"><%= (i+1) %></th>
+                                                    <td>
+                                                        <%= data[i].id%>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].nama%>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].email%>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].phone%>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].spesialis%>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].tempat_praktik%></td>
+                                                    <td>
+                                                        <img src="<%= data[i].url_foto%>" width="90px">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="/editdokter/<%=data[i].id%>" class="btn btn-sm btn-primary">EDIT</a>
+                                                        <% var id = data[i].id%>
+                                                        <a onclick="return confirm('Anda yakin menghapus data ini?')" href="/deletedokter/<%=id%>"  class="btn btn-sm btn-danger">HAPUS</a>
+                                                    </td>
+                                                </tr>
+                                            <% }
+                                            
+                                        }else{ %>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <div class="alert alert-danger" role="alert">
+                                                        Data Tidak Ditemukan !
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <% } %>    
+                                    </tbody>
+                                </table>  
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+          
+        </main>
+        
     </div>
-  
-</main>
-
 <footer>
-  <%- include('../../master/footer'); %>
+    <%- include('../../dashboard-layout/footer'); %>
 </footer>
 
-<!-- <div class="col-md-3 col-lg-3 " align="left"> 
-  <img alt="dokter" src="http://localhost:5000/public/images/dokter/<%=data[0].foto%>" class="img-circle img-responsive"> 
-  </div> -->
+
 </body>
 </html>

@@ -6,30 +6,42 @@
 /* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-import Reminder from '../models/Reminder.js';
+import { Reminder } from '../models/reminderUserModel.js';
 
 export const index = async (req, res) => {
   const response = await Reminder.findOne({
     where: {
-      id: '23',
+      user_id: req.session.userId,
     },
+    raw: true,
   });
-  const date1 = new Date(response.tgl_mulai);
-  const date2 = new Date(response.tgl_selesai);
-  const tgl1 = date1.getDate();
-  const tgl2 = date2.getDate();
-  const month1 = date1.getMonth() + 1;
-  const month2 = date2.getMonth() + 1;
-  const year1 = date1.getFullYear();
-  const year2 = date2.getFullYear();
-  const mulai = `${tgl1} - ${month1} - ${year1}`;
-  const selesai = `${tgl2} - ${month2} - ${year2}`;
-
-  res.render('pages/reminder/index', {
-    tgl_mulai: mulai,
-    tgl_selesai: selesai,
-    data: response,
-  });
+  console.log(response);
+  if (response) {
+    const date1 = new Date(response.tgl_mulai);
+    const date2 = new Date(response.tgl_selesai);
+    const tgl1 = date1.getDate();
+    const tgl2 = date2.getDate();
+    const month1 = date1.getMonth() + 1;
+    const month2 = date2.getMonth() + 1;
+    const year1 = date1.getFullYear();
+    const year2 = date2.getFullYear();
+    const mulai = `${tgl1}-${month1}-${year1}`;
+    const selesai = `${year2}-${month2}-${tgl2}`;
+    console.log(mulai);
+    res.render('pages/reminder/index', {
+      tgl_mulai: mulai,
+      tgl_selesai: selesai,
+      data: response,
+      message: req.session.userName,
+    });
+  } else {
+    res.render('pages/reminder/index', {
+      tgl_mulai: '0',
+      tgl_selesai: '0',
+      data: '0',
+      message: 'Belum ada data nih, Silahkan Atur Reminder terlebih dahulu',
+    });
+  }
 };
 
 export const create = async (req, res) => {
@@ -48,8 +60,9 @@ export const create = async (req, res) => {
 export const update = async (req, res) => {
   const rows = await Reminder.findOne({
     where: {
-      id: '23',
+      user_id: req.session.userId,
     },
+    raw: true,
   });
   const date1 = new Date(rows.tgl_mulai);
   const date2 = new Date(rows.tgl_selesai);
@@ -59,8 +72,8 @@ export const update = async (req, res) => {
   const month2 = date2.getMonth() + 1;
   const year1 = date1.getFullYear();
   const year2 = date2.getFullYear();
-  const mulai = `${tgl1}/${month1}/${year1}`;
-  const selesai = `${tgl2}/${month2}/${year2}`;
+  const mulai = `${year1}-${month1}-${tgl1}`;
+  const selesai = `${year2}-${month2}-${tgl2}`;
   res.render('pages/reminder/update', {
     tgl_mulai: mulai,
     tgl_selesai: selesai,
@@ -70,6 +83,7 @@ export const update = async (req, res) => {
     ket_siang: rows.ket_siang,
     jam_malam: rows.jam_malam,
     ket_malam: rows.ket_malam,
+    id: rows.id,
   });
 };
 
@@ -98,7 +112,7 @@ export const getReminderById = async (req, res) => {
 };
 
 // Function untuk menambahkan data
-export const createReminder = (req, res) => {
+export const createReminder = async (req, res) => {
   const { tgl_mulai } = req.body;
   const { tgl_selesai } = req.body;
   const { jam_pagi } = req.body;
@@ -107,7 +121,7 @@ export const createReminder = (req, res) => {
   const { ket_siang } = req.body;
   const { jam_malam } = req.body;
   const { ket_malam } = req.body;
-
+  // const { user_id } = req.session.userId;
   const totalHari = (date1, date2) => {
     const day1 = new Date(date1);
     const day2 = new Date(date2);
@@ -118,7 +132,8 @@ export const createReminder = (req, res) => {
   const jumlah = totalHari(tgl_mulai, tgl_selesai);
 
   try {
-    Reminder.create({
+    await Reminder.create({
+      user_id: req.session.userId,
       tgl_mulai,
       tgl_selesai,
       jam_pagi,
@@ -129,8 +144,8 @@ export const createReminder = (req, res) => {
       ket_malam,
       total_hari: jumlah,
     });
-    res.render('pages/reminder/index');
-    res.status(201).json({ msg: 'Reminder Created Successfuly' });
+    res.redirect('/reminderpage');
+    // res.status(201).json({ msg: 'Reminder Created Successfuly' });
   } catch (error) {
     console.log(error.message);
   }
@@ -152,10 +167,17 @@ export const updateReminder = async (req, res) => {
   const { ket_siang } = req.body;
   const { jam_malam } = req.body;
   const { ket_malam } = req.body;
-  const { total_hari } = req.body;
-
+  const totalHari = (date1, date2) => {
+    const day1 = new Date(date1);
+    const day2 = new Date(date2);
+    const Difference_In_Time = day2.getTime() - day1.getTime();
+    const Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    return Difference_In_Days;
+  };
+  const jumlah = totalHari(tgl_mulai, tgl_selesai);
   try {
     await Reminder.update({
+      user_id: req.session.userId,
       tgl_mulai,
       tgl_selesai,
       jam_pagi,
@@ -164,13 +186,13 @@ export const updateReminder = async (req, res) => {
       ket_siang,
       jam_malam,
       ket_malam,
-      total_hari,
+      total_hari: jumlah,
     }, {
       where: {
         id: req.params.id,
       },
     });
-    res.render('pages/reminder/index');
+    res.redirect('/reminderpage');
     res.status(200).json({ msg: 'Reminder Updated Successfuly' });
   } catch (error) {
     console.log(error.message);
@@ -196,58 +218,3 @@ export const deleteReminder = async (req, res) => {
     console.log(error.message);
   }
 };
-
-// export const notifikasi = async () => {
-//   //  Notification
-//   function showAlert() {
-//     const myText = 'Jangan lupa izinkan notifikasi dahulu ya sobat!';
-//     alert(myText);
-//   }
-//   showAlert();
-
-//   function showNotification() {
-//     const notification = new Notification('HiByeTB - Hai Sobat! Waktunya Minum Obat :) ', {
-//       body: 'Minum Obat Yuk',
-//     });
-//     notification.onclick = () => {
-//       window.location.href = '/reminderpage';
-//     };
-//   }
-
-//   if (Notification.permission === 'granted') {
-//     showNotification();
-//   } else if (Notification.permission !== 'denied') {
-//     Notification.requestPermission().then((permission) => {
-//       if (permission === 'granted') {
-//         showNotification();
-//       }
-//     });
-//   }
-//   const data = await Reminder.findOne({
-//     where: {
-//       id: '23',
-//     },
-//   });
-//   const dateNow = new Date();
-//   // const next = new Date(tgl_selesai);
-//   const pagi = new Date('2022-12-11 02:30:00');
-//   const siang = data.jam_siang;
-//   const malam = data.jam_malam;
-
-//   h = dateNow.getHours();
-//   m = set(dateNow.getMinutes());
-//   s = set(dateNow.getSeconds());
-//   now = `${h}:${m}:${s}`;
-
-//   hp = pagi.getHours();
-//   mp = set(pagi.getMinutes());
-//   sp = set(pagi.getSeconds());
-//   pagi2 = `${hp}:${mp}:${sp}`;
-//   // now = dateNow.getTime();
-//   console.log(`${now} - ${pagi2}`);
-//   if (now === pagi2 || now === siang || now === malam) {
-//     showNotification();
-//   } else {
-//     console.log('Gagal');
-//   }
-// };

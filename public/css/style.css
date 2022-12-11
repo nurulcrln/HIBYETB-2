@@ -24,6 +24,11 @@
     font-family: "Poppins", sans-serif;
 }
 
+.navbar-brand > img{
+    padding-left: 50px;
+    width: 50%;
+
+}
 /* Button */
 .btn{
     min-width: 44px;
@@ -100,7 +105,9 @@
 .doctor-content{
     padding: 25px;
 }
-
+.dokter-information{
+    background-color: #F1A661;
+}
 /* homepage-reminder */
 
 .img-reminder{
@@ -176,3 +183,87 @@ footer{
     margin-right: 0;
     
 }
+
+/* List Dokter */
+.slide-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 150px 0;
+  }
+  .slide-content{
+    margin: 0 40px;
+    overflow: hidden;
+    border-radius: 25px;
+  }
+  .list{
+    width: 500px;
+    border-radius: 25px;
+    background-color: #FFF;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .image-content,
+  .list-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px;
+  }
+  .image-content{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+  }
+  .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 15px 10px; 
+    background-color: #F1A661;
+    border-radius: 25px 25px 0 25px;
+  }
+  .overlay::before,
+  .overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #F1A661;
+  }
+  .overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #FFF;
+  }
+  .list-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #FFF;
+    padding: 3px;
+  }
+  .list-image .list-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #F1A661;
+  }
+  .description{
+    font-size: 16px;
+    color: black;
+    text-align: center;
+  }
+  .about-jumbotron{
+padding-top: 150px;
+  }

@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <%- include('../../master/header'); %>
+    </head>
 <head>
-  <%- include('../../master/header'); %>
+    <%- include('../../dashboard-layout/header'); %>
 </head>
 <body>
 
-<header>
-  <%- include('../../master/navbar'); %>
-</header>
+    <div class="wrapper">
+        <%- include('../../dashboard-layout/navbar'); %>
+        <%- include('../../dashboard-layout/sidebar'); %>
 
-
-<main>
+        <main>
   
-    <form action="/updatedokter/<%= id %>" method="POST" enctype="multipart/form-data">
-
-        <div class="form-group">
-            <label for="nama-dokter" class="col-form-label">Nama :</label>
-            <input type="text" class="form-control" name="nama" id="nama-dokter" value="<%= nama %>"> 
-        </div>
-
-        <div class="form-group">
-            <label for="email-dokter" class="col-form-label">Email :</label>
-            <input type="email" class="form-control" name="email" id="email-dokter" value="<%= email %>">
-        </div>
-
-        <div class="form-group">
-            <label for="dokter" class="col-form-label">Spesialis :</label>
-            <input type="text" class="form-control" name="spesialis" id="dokter" value="<%= spesialis %>">
-        </div>
-
-        <div class="form-group">
-            <label for="praktik-dokter" class="col-form-label">Tempat Praktik :</label>
-            <input type="text" class="form-control" name="tempat_praktik" id="praktik-dokter" value="<%= tempat_praktik %>">
-        </div>
-
-        <div class="form-group">
-            <label for="phone-dokter" class="col-form-label">Phone :</label>
-            <input type="number" class="form-control" name="phone" id="phone-dokter" value="<%= phone %>">
-        </div>
-
-        <div class="form-group">
-            <label>Foto :</label><br>
-            <img src="<%= url_foto%>" width="29%">
-            <input type="file" class="form-control-file" name="foto" value="<%= foto %>">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a type="button" href="/dokterpage" class="btn btn-warning">Cancel</a>
-
-    </form>
-
-</main>
+            <form action="/updatedokter/<%= id %>" method="POST" enctype="multipart/form-data">
+        
+                <div class="form-group">
+                    <label for="nama-dokter" class="col-form-label">Nama :</label>
+                    <input type="text" class="form-control" name="nama" id="nama-dokter" value="<%= nama %>"> 
+                </div>
+        
+                <div class="form-group">
+                    <label for="email-dokter" class="col-form-label">Email :</label>
+                    <input type="email" class="form-control" name="email" id="email-dokter" value="<%= email %>">
+                </div>
+        
+                <div class="form-group">
+                    <label for="dokter" class="col-form-label">Spesialis :</label>
+                    <input type="text" class="form-control" name="spesialis" id="dokter" value="<%= spesialis %>">
+                </div>
+        
+                <div class="form-group">
+                    <label for="praktik-dokter" class="col-form-label">Tempat Praktik :</label>
+                    <input type="text" class="form-control" name="tempat_praktik" id="praktik-dokter" value="<%= tempat_praktik %>">
+                </div>
+        
+                <div class="form-group">
+                    <label for="phone-dokter" class="col-form-label">Phone :</label>
+                    <input type="number" class="form-control" name="phone" id="phone-dokter" value="<%= phone %>">
+                </div>
+        
+                <div class="form-group">
+                    <label>Foto :</label><br>
+                    <img src="<%= url_foto%>" width="29%">
+                    <input type="file" class="form-control-file" name="foto" value="<%= foto %>">
+                </div>
+        
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a type="button" href="/dokterpage" class="btn btn-warning">Cancel</a>
+        
+            </form>
+        
+        </main>
+    </div>
 
 <footer>
-  <%- include('../../master/footer'); %>
+    <%- include('../../dashboard-layout/footer'); %>
 </footer>
 
 </body>

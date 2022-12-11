@@ -1,0 +1,12 @@
+.content-header, .content, .main-footer, .main-header {
+    background-color: #F1A661;
+}
+.main-navbar {
+    padding-top: 89px;
+    position: relative;
+    color: black;
+}
+
+.navbar-light {
+    background-color: #F1A661;
+}

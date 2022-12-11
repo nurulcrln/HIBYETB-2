@@ -31,7 +31,9 @@
 }
 
 .mb-0 {
+    margin-top: 8px;
     font-size: smaller;
+    float: right;
 }
 
 .alert {

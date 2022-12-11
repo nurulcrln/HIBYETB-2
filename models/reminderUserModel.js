@@ -4,9 +4,20 @@
 /* eslint-disable camelcase */
 import { Sequelize } from 'sequelize';
 import db from '../config/Database.js';
-// import User from './User';
 
 const { DataTypes } = Sequelize;
+
+const User = db.define('users', {
+  username: DataTypes.STRING,
+  email: DataTypes.STRING,
+  nik: DataTypes.INTEGER,
+  age: DataTypes.INTEGER,
+  phone: DataTypes.INTEGER,
+  password: DataTypes.STRING,
+  role: DataTypes.STRING,
+}, {
+  freezeTableName: true,
+});
 
 const Reminder = db.define('reminder', {
   user_id: DataTypes.INTEGER,
@@ -22,19 +33,22 @@ const Reminder = db.define('reminder', {
 }, {
   freezeTableName: true,
 });
-// Reminder.associate = (models) => {
-//   // associations can be defined here
-//   Reminder.belongsTo(models.User, {
-//     foreignKey: 'id',
-//     as: 'users',
-//   });
-// };
 
-export default Reminder;
+(async () => {
+  await db.sync();
+})();
+
+User.hasOne(Reminder, {
+  foreignKey: 'user_id',
+  as: 'reminder',
+});
+
 // Reminder.belongsTo(User, {
 //   foreignKey: 'id',
 //   as: 'users',
 // });
-(async () => {
-  await db.sync();
-})();
+Reminder.belongsTo(User, {
+  foreignKey: 'id',
+  as: 'users',
+});
+export { User, Reminder };

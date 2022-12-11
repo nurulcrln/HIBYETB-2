@@ -4,28 +4,26 @@
 <head>
     <%- include('../../master/header'); %>
 </head>
-
+<header>
+    <%- include('../../master/navbar'); %>
+</header>
 <body>
-    <main>
-        <nav class="navbar navbar-light bg-light">
-            <p class="navbar-brand" id="logo">HiByeTB</p>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2 boxSearch" type="search" placeholder="Search" aria-label="Search">
-            </form>
-        </nav>
-        <br>
+    <main class="list-artikel">
+        <form class="form container-fluid src-artikel ">
+            <input class="form-control mr-sm-2 boxSearch shadow-lg material-symbols-outlined" type="search" placeholder="Search" aria-label="Search">
+        </form>
         <div id="grid" class="listSearch">
             <% if(data.length){ for(var i=0; i< data.length; i++) {%>
                 <article>
                     <div>
-                        <div>
-                            <img src=" <%= data[i].url_foto%>" id="img-listartikel" alt="Hak Cipta HIByeTB">
+                        <div><br>
+                            <img src=" <%= data[i].url_foto%>"  id="img-listartikel" alt="Hak Cipta HIByeTB">
                             <div>
-                                <h5 class="title-artikel">
+                                <h5 class="title-artikel p-5">
                                     <%= data[i].judul%>
                                 </h5>
                                 <a href="/listitem/<%= data[i].id%>" class="btn btn-primary"
-                                    id="detail-artikel">Detail</a>
+                                    id="detail-artikel">Detail</a><br><br>
                             </div>
                         </div>
                     </div>
@@ -38,7 +36,8 @@
 
         </div>
     </main>
-    <footer>
+    <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,133 0,133 C 115.8468899521531,135.56459330143542 231.6937799043062,138.12918660287082 318,146 C 404.3062200956938,153.87081339712918 461.07177033492826,167.04784688995215 541,154 C 620.9282296650717,140.95215311004785 724.0191387559807,101.67942583732058 820,98 C 915.9808612440193,94.32057416267942 1004.8516746411483,126.23444976076556 1107,138 C 1209.1483253588517,149.76555023923444 1324.5741626794259,141.38277511961724 1440,133 C 1440,133 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,400 C 0,400 0,266 0,266 C 100.43062200956936,250.54545454545453 200.86124401913872,235.09090909090907 305,235 C 409.1387559808613,234.90909090909093 516.9856459330144,250.1818181818182 608,245 C 699.0143540669856,239.8181818181818 773.1961722488037,214.18181818181816 875,218 C 976.8038277511963,221.81818181818184 1106.2296650717706,255.09090909090912 1205,268 C 1303.7703349282294,280.9090909090909 1371.8851674641146,273.45454545454544 1440,266 C 1440,266 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+    <footer class="fixed-bottom">
         <%- include('../../master/footer'); %>
     </footer>
 </body>

@@ -29,7 +29,7 @@
          }
 
         //  Notification
-        function notif(){
+        function notifikasi(){
             function showAlert() {
                 const myText = "Jangan lupa izinkan notifikasi dahulu ya sobat!";
                 alert (myText);
@@ -54,30 +54,47 @@
                 });
             }
         }
-        function dis() {
-            let dateNow = new Date();
-            // const next = new Date(tgl_selesai);
-            let pagi = new Date('2022-12-11 02:55:00'); 
-            // let siang = jam_siang;
-            // let malam = jam_malam;
+        
+        // function dis() {
+           
+        //     let now = new Date();
+        //     dateNow = now.toLocaleDateString();
+        //     const start = new Date('<%= tgl_mulai%>').toLocaleDateString();
+        //     const end = new Date('<%= tgl_selesai%>').toLocaleDateString();
+        //     let pagi = '<%= data.jam_pagi%>'; 
+        //     let siang = '<%= data.jam_siang%>';
+        //     let malam = '<%= data.jam_malam%>';
 
-            
-            h = dateNow.getHours();
-            m = set(dateNow.getMinutes());
-            s = set(dateNow.getSeconds());
-            now = h+':'+m+":"+s;
-            
-            hp = pagi.getHours();
-            mp = set(pagi.getMinutes());
-            sp = set(pagi.getSeconds());
-            pagi2= hp+':'+mp+":"+sp;
-            if (now == pagi2){
-                notif();
-            }else {
-                console.log('Gagal');
-            }
-            setTimeout(dis(),1000);
-        };
+        //     let h = now.getHours();
+        //     let m = set(now.getMinutes());
+        //     let s = set(now.getSeconds());
+        //     let waktu = h+':'+m+":"+s;
+        //     let splitP = pagi.split(':');
+        //     let splitS = siang.split(':');
+        //     let splitM = malam.split(':');
+        //     let hp = parseInt(splitP[0]);
+        //     let mp = parseInt(splitP[1]);
+        //     let sp = parseInt(splitP[2]);
+        //     let rm_pagi= hp+':'+mp+":"+sp;
+        //     let hs = parseInt(splitS[0]);
+        //     let ms = parseInt(splitS[1]);
+        //     let ss = parseInt(splitS[2]);
+        //     let rm_siang= hs+':'+ms+":"+ss;
+        //     let hm = parseInt(splitM[0]);
+        //     let mm = parseInt(splitM[1]);
+        //     let sm = parseInt(splitM[2]);
+        //     let rm_malam= hm+':'+mm+":"+sm;
+        //     let detikP = ((hp*3600) + (mp*60) + (sp));
+        //     let detikS = Math.floor((hs*3600) + (ms*60) + (ss));
+        //     let detikM = Math.floor((hm*3600) + (mm*60) + (sm));
+        //     console.log(waktu);
+        //     if (waktu == rm_pagi ) {
+        //         notifikasi();
+        //     }else {
+        //         console.log('Gagal');
+        //     }
+        //     setTimeout(dis(),5000);
+        // };
      </script>
 </head>
 <body>
@@ -126,6 +143,15 @@
             <div class="col-sm-6 align-self-center shadow-lg rounded-4 jadwal">
                 <div class="reminder-content">
                   <h1 class="article-text text-white text-center pt-5 pb-5">Jadwal Minum Obat</h1>
+                  <div class="row pb-5">
+                    <div class="col">
+                        <div class="card shadow rounded-4">
+                            <div class="card-body">
+                                <p> Halo, <%= message %> </p>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
                   <div class="row pb-5">
                     <div class="col-sm-6">
                         <div class="card shadow rounded-4">
@@ -182,17 +208,17 @@
                 </div>
                 <div class="row pt-5 pb-5">
                     <div class="col">
-                        <a type="button" class="btn bg-secondary p-2 shadow-lg rm-button text-white align-self-center"  href="/createreminder">Atur Reminder</a>
+                        <a type="button" class="btn bg-secondary p-2 shadow-lg mb-5 rm-button text-white align-self-center"  href="/createreminder">Atur Reminder</a>
                     </div>
                     <div class="col">
-                        <a type="button" class="btn bg-secondary p-2 shadow-lg rm-button text-white align-self-center" href="/updatereminder">Update Reminder</a>
+                        <a type="button" class="btn bg-secondary p-2 shadow-lg mb-5 rm-button text-white align-self-center" href="/updatereminder">Update Reminder</a>
                     </div>
                     <div class="col">
                         <a type="button" class="btn btn-secondary text-white p-2 shadow-lg rm-button align-self-center"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-custom-class="custom-tooltip"
                                 data-bs-title="Jangan lupa izinkan notifikasi dahulu ya sobat!"
-                                onclick="dis()">
+                                onclick="notifikasi()">
                         Set Notifikasi
                         </a>
                     </div>
@@ -203,7 +229,7 @@
     </div>    
 </main>
 <svg class="ms-0 me-0" width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,133 0,133 C 115.8468899521531,135.56459330143542 231.6937799043062,138.12918660287082 318,146 C 404.3062200956938,153.87081339712918 461.07177033492826,167.04784688995215 541,154 C 620.9282296650717,140.95215311004785 724.0191387559807,101.67942583732058 820,98 C 915.9808612440193,94.32057416267942 1004.8516746411483,126.23444976076556 1107,138 C 1209.1483253588517,149.76555023923444 1324.5741626794259,141.38277511961724 1440,133 C 1440,133 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,400 C 0,400 0,266 0,266 C 100.43062200956936,250.54545454545453 200.86124401913872,235.09090909090907 305,235 C 409.1387559808613,234.90909090909093 516.9856459330144,250.1818181818182 608,245 C 699.0143540669856,239.8181818181818 773.1961722488037,214.18181818181816 875,218 C 976.8038277511963,221.81818181818184 1106.2296650717706,255.09090909090912 1205,268 C 1303.7703349282294,280.9090909090909 1371.8851674641146,273.45454545454544 1440,266 C 1440,266 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>  
-<footer style="margin-bottom: 0;">
+<footer class="fixed-bottom" style="margin-bottom: 0;">
     <%- include('../../master/footer'); %>
 </footer>
 </body>

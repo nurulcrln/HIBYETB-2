@@ -3,10 +3,11 @@
 /* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 import express from 'express';
-import { profile } from '../controllers/ProfileController.js';
+import { isLoginHandler } from '../middlewares/isLoginHandler.js';
+import { profile } from '../controllers/UserController.js';
 
 const router = express.Router();
 
-router.get('/profile', profile);
+router.get('/profile', isLoginHandler, profile);
 
 export default router;
