@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../master/header'); %>
+</head>
+<body>
+
+<header>
+    <%- include('../../master/navbar'); %>
+</header>
+
+<main>
+    <a type="button" href="/createreminder" class="btn btn-sm btn-primary mb-1 mt-1"> Set Reminder</a>
+    
+    <div class="clock">
+        <div class="inside">
+            <div class="content">
+                <p class="days">
+                    <span id="minggu">MIN</span>
+                    <span id="senin">SEN</span>
+                    <span id="selasa">SEL</span>
+                    <span id="rabu">RAB</span>
+                    <span id="kamis">KAM</span>
+                    <span id="jumat">JUM</span>
+                    <span id="sabtu">SAB</span>
+                </p><br>
+                <p class="text">
+                    <span id="jam"></span>
+                    <span id="menit"></span>
+                    <span id="detik"></span>
+                    <span id="waktu"></span>
+                </p>
+                <br>
+                <p id="tanggal">
+                    <span id="kalender">
+                        <img src="" alt="">
+                    </span>
+                    <span id="hari"></span>
+                    <span id="bulan"></span>
+                    <span id="tahun"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <%- include('../../master/footer'); %>
+</footer>
+<script src="../reminder/function.js"></script>
+</body>
+</html>

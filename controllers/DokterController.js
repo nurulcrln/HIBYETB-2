@@ -61,7 +61,7 @@ export const getDokterById = async (req, res) => {
 };
 
 // Function untuk menambahkan data
-export const createDokter = async (req, res) => {
+export const createDokter = (req, res) => {
   const { nama } = req.body;
   const { email } = req.body;
   const { spesialis } = req.body;

@@ -1,30 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../../master/header'); %>
-</head>
-<body class="container">
 
-<header>
+<head>
+  <%- include('../../master/header'); %>
+</head>
+
+<body>
+
+  <header>
     <%- include('../../master/navbar'); %>
-</header>
+  </header>
 
 <main>
-    <div class="hero d-flex align-items-center">
-      <div class="container">
-        <div class="row ">
-          <div class="col text-center">
-            <h1>HiByeTB</h1>
-            <p>Website informasi TBC terlengkap, <br>forum diskusi terkait TBC, daftar dokter konsultasi TBC, <br>dan atur pengingat minum obat untuk penderita TBC</p>
+  <!-- Section Jumbotron -->
+  <section class="jumbotron text-center">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 align-self-center p-2 ">
+          <div class="hero-content">
+            <h1 class="hero-text text-white">HiByeTB</h1>
+            <p class="fs-4 p-3">Website informasi TBC terlengkap, <br>forum diskusi terkait TBC, daftar dokter konsultasi TBC, <br>dan atur pengingat minum obat untuk penderita TBC <br> #Menuju Indonesia Bebas Tuberkulosis</p>
+            <button type="button" class="btn btn-light fw-semibold">Lihat fitur</button>
+          </div>
+        </div>
+        <div class="col-sm-6 p-2">
+          <img class="img-hero align-self-center" src="/images/hero.png" alt="" >
+        </div>
+      </div>
+      
+    </div>
+  
+    <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,600 C 0,600 0,200 0,200 C 127.49282296650719,214.64114832535884 254.98564593301438,229.28229665071768 341,212 C 427.0143540669856,194.71770334928232 471.5502392344498,145.51196172248805 564,137 C 656.4497607655502,128.48803827751195 796.8133971291866,160.66985645933013 891,168 C 985.1866028708134,175.33014354066987 1033.1961722488038,157.80861244019138 1117,159 C 1200.8038277511962,160.19138755980862 1320.401913875598,180.0956937799043 1440,200 C 1440,200 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#ffffff" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,600 C 0,600 0,400 0,400 C 72.41148325358853,372.87081339712915 144.82296650717706,345.74162679425837 255,347 C 365.17703349282294,348.25837320574163 513.1196172248804,377.9043062200957 606,381 C 698.8803827751196,384.0956937799043 736.6985645933015,360.64114832535887 818,364 C 899.3014354066985,367.35885167464113 1024.0861244019138,397.53110047846894 1135,408 C 1245.9138755980862,418.46889952153106 1342.956937799043,409.23444976076553 1440,400 C 1440,400 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#ffffff" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+  </section> 
+
+  <!-- Section Artikel -->
+  <section class="information">
+    <div class="container-fluid article-section text-center ">
+      <div class="row">
+        <div class="col-sm-6 p-2">
+          <img class="img-article align-self-center" src="/images/bacteria.png" alt="" >
+        </div>
+        <div class="col-sm-6 align-self-center  ">
+          <div class="article-content">
+            <h1 class="article-text ">Apa Itu TBC?</h1>
+            <p class="fs-4 p-5">Tuberkulosis (TBC) adalah penyakit menular yang disebabkan oleh bakteri Mycobacterium Tuberculosis. TBC utamanya menyerang paru-paru, namun juga dapat menyerang organ tubuh lain seperti selaput otak, kulit, tulang, kelenjar getah bening,dan lainnya ketika bakteri TBC keluar dari paru-paru melalui aliran darah. Kondisi ini disebut TBC Ekstraparu. Gejala utama adalah batuk berdahak terus-menerus selama 2-3 minggu atau lebih. <br> Bagaimana TBC dapat menular? <br> Cek artikel mengenai TBC disini!</p>
+            <button type="button" class="btn btn-light text-white p-1" style="background-color: #F1A661;" href="/artikepage">Lihat Artikel Lainnya</button>
           </div>
         </div>
       </div>
     </div>
+    <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,133 0,133 C 115.8468899521531,135.56459330143542 231.6937799043062,138.12918660287082 318,146 C 404.3062200956938,153.87081339712918 461.07177033492826,167.04784688995215 541,154 C 620.9282296650717,140.95215311004785 724.0191387559807,101.67942583732058 820,98 C 915.9808612440193,94.32057416267942 1004.8516746411483,126.23444976076556 1107,138 C 1209.1483253588517,149.76555023923444 1324.5741626794259,141.38277511961724 1440,133 C 1440,133 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,400 C 0,400 0,266 0,266 C 100.43062200956936,250.54545454545453 200.86124401913872,235.09090909090907 305,235 C 409.1387559808613,234.90909090909093 516.9856459330144,250.1818181818182 608,245 C 699.0143540669856,239.8181818181818 773.1961722488037,214.18181818181816 875,218 C 976.8038277511963,221.81818181818184 1106.2296650717706,255.09090909090912 1205,268 C 1303.7703349282294,280.9090909090909 1371.8851674641146,273.45454545454544 1440,266 C 1440,266 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+  </section>
+
+<!-- Section Dokter -->
+  <section class="dokter-information">
+    <div class="container-fluid doctor-section text-center ">
+      <div class="row">
+        <div class="col-sm-6 align-self-center  ">
+          <div class="doctor-content">
+            <h1 class="doctor-text text-white">Konsultasi</h1>
+            <p class="fs-4 p-5">TBC dapat menyerang siapa saja (tua, muda, laki-laki, perempuan, miskin, kaya). Hanya sekitar 10% diantara orang yang terinfeksi akan jatuh sakit, namun, bakteri TBC dapat hidup dalam kondisi non-aktif (laten) seumur hidup dan menjadi aktif saat daya tahan tubuh melemah. <br>
+            Yuk konsultasikan gejalamu pada dokter spesialis!</p>
+            <button type="button" class="btn btn-light" href="/listdokter">Kontak Dokter</button>
+          </div>
+        </div>
+        <div class="col-sm-6 p-2">
+          <img class="img-doctor align-self-center" src="/images/dokter.png" alt="" >
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,133 0,133 C 101.28229665071771,116.66507177033492 202.56459330143542,100.33014354066985 302,88 C 401.4354066985646,75.66985645933015 499.02392344497605,67.34449760765551 590,84 C 680.976076555024,100.65550239234449 765.3397129186603,142.29186602870814 852,162 C 938.6602870813397,181.70813397129186 1027.6172248803828,179.48803827751195 1126,171 C 1224.3827751196172,162.51196172248805 1332.1913875598086,147.75598086124404 1440,133 C 1440,133 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 200)"></path><path d="M 0,400 C 0,400 0,266 0,266 C 77.34928229665073,293.6076555023924 154.69856459330146,321.2153110047847 246,309 C 337.30143540669854,296.7846889952153 442.555023923445,244.74641148325355 535,232 C 627.444976076555,219.25358851674645 707.0813397129186,245.799043062201 814,269 C 920.9186602870814,292.200956937799 1055.1196172248806,312.0574162679426 1164,311 C 1272.8803827751194,309.9425837320574 1356.4401913875597,287.9712918660287 1440,266 C 1440,266 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1" transform="rotate(-180 720 200)"></path></svg>
+
+  <!-- Section Reminder -->
+<section class="reminder-information">
+  <div class="container-fluid reminder-section text-center ">
+    <div class="row">
+      <div class="col-sm-6 p-2">
+        <img class="img-reminder align-self-center" src="/images/reminder.jpg" alt="" >
+      </div>
+      <div class="col-sm-6 align-self-center  ">
+        <div class="reminder-content">
+          <h1 class="reminder-text ">TBC Sensitif Obat</h1>
+          <p class="fs-4 p-5">Pengobatan TBC dilakukan dalam dua tahap, yaitu tahap awal atau tahap intensif (2-3 bulan; tergantung hasil konversi dahak) dan tahap lanjutan (paling cepat 4 bulan). Selama 6 bulan atau lebih, orang dengan TBC harus minum obat secara lengkap dan teratur sesuai jadwal berobat sampai dinyatakan sembuh. Jangan khawatir telat minum obat, yuk set reminder kamu disini!</p>
+          <button type="button" class="btn btn-light text-white p-1" style="background-color: #F1A661;" href="/reminderpage">Atur Reminder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,133 0,133 C 115.8468899521531,135.56459330143542 231.6937799043062,138.12918660287082 318,146 C 404.3062200956938,153.87081339712918 461.07177033492826,167.04784688995215 541,154 C 620.9282296650717,140.95215311004785 724.0191387559807,101.67942583732058 820,98 C 915.9808612440193,94.32057416267942 1004.8516746411483,126.23444976076556 1107,138 C 1209.1483253588517,149.76555023923444 1324.5741626794259,141.38277511961724 1440,133 C 1440,133 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,400 C 0,400 0,266 0,266 C 100.43062200956936,250.54545454545453 200.86124401913872,235.09090909090907 305,235 C 409.1387559808613,234.90909090909093 516.9856459330144,250.1818181818182 608,245 C 699.0143540669856,239.8181818181818 773.1961722488037,214.18181818181816 875,218 C 976.8038277511963,221.81818181818184 1106.2296650717706,255.09090909090912 1205,268 C 1303.7703349282294,280.9090909090909 1371.8851674641146,273.45454545454544 1440,266 C 1440,266 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+</section>
+
 </main>
 
-<footer>
+  <footer>
     <%- include('../../master/footer'); %>
-</footer>
+  </footer>
 
 </body>
+
 </html>

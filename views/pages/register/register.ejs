@@ -16,17 +16,21 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
+    <img src="../images/icon/tuberculosis.png" alt="icon">
     <p>HiByeTB</p>
   </div>
-
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Hi, Selamat datang di HiByeTB</p>
       <p class="login-box-msg">Register a new membership</p>
-
-      <form action="../../index.html" method="post">
+      <% if (message) {%>
+        <div class="alert {{messageClass}}" role="alert">
+          <%=message%>
+        </div>
+      <%}%>
+      <form action="/createregister" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" class="form-control" placeholder="Full name" name="username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -34,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="number" class="form-control" min="1" max="99" placeholder="Age">
+          <input type="number" class="form-control" min="1" max="99" placeholder="Age" name="age">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -42,7 +46,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="number" class="form-control" min="1" max="99" placeholder="Phone Number">
+          <input type="number" class="form-control" placeholder="Phone Number" name="phone">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-phone"></span>
@@ -50,7 +54,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="number" class="form-control" min="1" max="99" placeholder="NIK">
+          <input type="number" class="form-control" placeholder="NIK" name="nik" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-id-card"></span>
@@ -58,7 +62,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" name="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -66,7 +70,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -74,9 +78,17 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" placeholder="Retype password" name="confirmPassword">
           <div class="input-group-append">
             <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control invisible" placeholder="User" name="role" value="user">
+          <div class="input-group-append invisible">
+            <div class="input-group-text invisible">
               <span class="fas fa-lock"></span>
             </div>
           </div>
@@ -97,7 +109,7 @@
           <!-- /.col -->
         </div>
       </form>
-      <a href="/login" class="text-center">I already have a membership</a>
+      <p>Already Have an account?<a href="/login" class="text-center"> Login</a></p>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

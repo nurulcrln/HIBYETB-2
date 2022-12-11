@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../master/header'); %>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text">
+            Article page settings
+        </span>
+    </nav><br>
+    <main class="container">
+        <a type="button" href="/createartikel" class="btn btn-outline-primary">
+            <span class="material-symbols-outlined">
+                note_add
+            </span>
+        </a><br> <br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Deskripsi</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Pengunggah</th>
+                    <th scope="col">Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(data.length){ for(var i=0; i< data.length; i++) {%>
+                    <tr>
+                        <th scope="row" class="text-center">
+                            <%= (i+1) %>
+                        </th>
+                        <td>
+                            <%= data[i].judul%>
+                        </td>
+                        <td>
+                            <%= data[i].deskripsi%>
+                        </td>
+                        <td>
+                            <img src=" <%= data[i].url_foto%>" alt="" width="25%">
+
+                        </td>
+                        <td>
+                            <%= data[i].pengunggah%>
+                        </td>
+                        <td>
+                            <% var id=data[i].id%>
+                                <a href="/editartikel/<%=data[i].id%>" class="btn btn-sm btn-primary">
+                                    <span class="material-symbols-outlined">
+                                        update
+                                    </span>
+                                </a>
+                                <a onclick="return confirm('Anda yakin menghapus data ini?')"
+                                    href="/deleteartikel/<%=id%>" class="btn btn-sm btn-danger">
+                                    <span class="material-symbols-outlined">
+                                        delete_forever
+                                    </span>
+                                </a>
+                        </td>
+                    </tr>
+                    <% } }else{ %>
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger" role="alert">
+                                    Data Tidak Ditemukan !
+                                </div>
+                            </td>
+                        </tr>
+                        <% } %>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <%- include('../../master/footer'); %>
+    </footer>
+</body>
+
+</html>
