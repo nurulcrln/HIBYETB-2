@@ -7,6 +7,8 @@
 import express from 'express';
 import FileUpload from 'express-fileupload';
 import cors from 'cors';
+import session from 'express-session';
+import flash from 'req-flash';
 // import exphbs from 'express-handlebars';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -50,7 +52,17 @@ app.use(HomepageRoute);
 app.use(DoktersRoute);
 app.use(DashboardRoute);
 app.use(ProfileRoute);
-
+app.use(session({
+  resave: false,
+  saveUninitialized: false,
+  secret: 't@1k0ch3ng',
+  name: 'secretName',
+  cookie: {
+    sameSite: true,
+    maxAge: 60000,
+  },
+}));
+app.use(flash());
 // To support URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 

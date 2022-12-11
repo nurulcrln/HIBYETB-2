@@ -13,6 +13,8 @@ import {
   login,
   loginProcess,
   loginProtected,
+  // isLogout,
+  logout,
 } from '../controllers/UserController.js';
 
 const router = express.Router();
@@ -24,7 +26,10 @@ router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 router.post('/createregister', createUser);
 router.post('/login', loginProcess);
-router.get('/login', login);
-router.get('/register', create);
+// router.get('/login', login);
+// router.get('/register', create);
 router.get('/protected', loginProtected);
+router.get('/register', create);
+router.get('/login', login);
+router.get('/logout', logout);
 export default router;

@@ -2,6 +2,83 @@
 <html lang="en">
 <head>
     <%- include('../../master/header'); %>
+    <script>
+        /* eslint-disable arrow-body-style */
+         /* eslint-disable space-infix-ops */
+         /* eslint-disable prefer-template */
+         /* eslint-disable quotes */
+         /* eslint-disable array-callback-return */
+         window,onload = function() { jam(); };
+         function jam() {
+             let jam = document.getElementById('hours');
+             let menit = document.getElementById('minutes');
+             let detik = document.getElementById('seconds');
+             let date = new Date(), h, m, s;
+             h = date.getHours();
+             m = set(date.getMinutes());
+             s = set(date.getSeconds());
+             jam.innerHTML = h;
+             menit.innerHTML = m;
+             detik.innerHTML = s;
+     
+             setTimeout('jam()', 1000);
+         }
+         function set(i){
+             i = i  < 10 ? '0' + i : i;
+             return i;
+         }
+
+        //  Notification
+        function notif(){
+            function showAlert() {
+                const myText = "Jangan lupa izinkan notifikasi dahulu ya sobat!";
+                alert (myText);
+            }
+            showAlert();
+            function showNotification(){
+                const notification = new Notification('HiByeTB - Hai Sobat! Waktunya Minum Obat :) ',{
+                    body: "Minum Obat Yuk"
+                });
+                notification.onclick= (event) => {
+                    window.location.href = '/reminderpage';
+                }
+            }
+            
+            if(Notification.permission === 'granted'){
+                showNotification();
+            } else if(Notification.permission !== 'denied'){
+                Notification.requestPermission().then(permission=>{
+                    if(permission === 'granted'){
+                        showNotification();
+                    }
+                });
+            }
+        }
+        function dis() {
+            let dateNow = new Date();
+            // const next = new Date(tgl_selesai);
+            let pagi = new Date('2022-12-11 02:55:00'); 
+            // let siang = jam_siang;
+            // let malam = jam_malam;
+
+            
+            h = dateNow.getHours();
+            m = set(dateNow.getMinutes());
+            s = set(dateNow.getSeconds());
+            now = h+':'+m+":"+s;
+            
+            hp = pagi.getHours();
+            mp = set(pagi.getMinutes());
+            sp = set(pagi.getSeconds());
+            pagi2= hp+':'+mp+":"+sp;
+            if (now == pagi2){
+                notif();
+            }else {
+                console.log('Gagal');
+            }
+            setTimeout(dis(),1000);
+        };
+     </script>
 </head>
 <body>
 
@@ -9,44 +86,125 @@
     <%- include('../../master/navbar'); %>
 </header>
 
-<main>
-    <a type="button" href="/createreminder" class="btn btn-sm btn-primary mb-1 mt-1"> Set Reminder</a>
-    
-    <div class="clock">
-        <div class="inside">
-            <div class="content">
-                <p class="days">
-                    <span id="minggu">MIN</span>
-                    <span id="senin">SEN</span>
-                    <span id="selasa">SEL</span>
-                    <span id="rabu">RAB</span>
-                    <span id="kamis">KAM</span>
-                    <span id="jumat">JUM</span>
-                    <span id="sabtu">SAB</span>
-                </p><br>
-                <p class="text">
-                    <span id="jam"></span>
-                    <span id="menit"></span>
-                    <span id="detik"></span>
-                    <span id="waktu"></span>
-                </p>
-                <br>
-                <p id="tanggal">
-                    <span id="kalender">
-                        <img src="" alt="">
-                    </span>
-                    <span id="hari"></span>
-                    <span id="bulan"></span>
-                    <span id="tahun"></span>
-                </p>
+<main >
+    <div class="container-fluid reminder-jumbotron">
+        <div class="text-black text-center align-self-center">
+            <div class="row jamdigital pb-5">             
+                <div class="card card-digital col-3 p-5 m-2">
+                    <div class="card-body">
+                        <h1 id="hours"></h1>
+                    </div>
+                </div>
+                <div class="col-1 p-0  m-2 align-self-center">
+                    <h1 class="titikdua text-white"> : </h1>
+                </div>
+                <div class="card card-digital col-3 p-5 m-2">
+                    <div class="card-body">
+                        <h1 id="minutes" class="align-self-center"></h1>
+                    </div>
+                </div>
+                <div class="col-1 p-0  m-2 align-self-center">
+                    <h1 class="titikdua text-white"> : </h1>
+                </div>
+                <div class="card card-digital col-3 pt-5 pb-5 ps-5 m-2">
+                    <div class="card-body">
+                        <h1 id="seconds"></h1>
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-center pt-5 align-self-center text-white">Jangan lupa minum obat, Sobat!</h1>
+            <h3 class="text-center align-self-center text-white">#Menuju Indonesia Bebas Tuberkulosis</h3>
+
+        </div>
+        <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,600 C 0,600 0,200 0,200 C 127.49282296650719,214.64114832535884 254.98564593301438,229.28229665071768 341,212 C 427.0143540669856,194.71770334928232 471.5502392344498,145.51196172248805 564,137 C 656.4497607655502,128.48803827751195 796.8133971291866,160.66985645933013 891,168 C 985.1866028708134,175.33014354066987 1033.1961722488038,157.80861244019138 1117,159 C 1200.8038277511962,160.19138755980862 1320.401913875598,180.0956937799043 1440,200 C 1440,200 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#ffffff" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,600 C 0,600 0,400 0,400 C 72.41148325358853,372.87081339712915 144.82296650717706,345.74162679425837 255,347 C 365.17703349282294,348.25837320574163 513.1196172248804,377.9043062200957 606,381 C 698.8803827751196,384.0956937799043 736.6985645933015,360.64114832535887 818,364 C 899.3014354066985,367.35885167464113 1024.0861244019138,397.53110047846894 1135,408 C 1245.9138755980862,418.46889952153106 1342.956937799043,409.23444976076553 1440,400 C 1440,400 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#ffffff" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+      </div>
+      <div class="container-fluid jadwal-reminder text-center ">
+        <div class="row">
+            <div class="col-sm-6 ">
+                <img class="img-rm align-self-center" src="/images/reminder-bot.gif" alt="">
+            </div>
+            <div class="col-sm-6 align-self-center shadow-lg rounded-4 jadwal">
+                <div class="reminder-content">
+                  <h1 class="article-text text-white text-center pt-5 pb-5">Jadwal Minum Obat</h1>
+                  <div class="row pb-5">
+                    <div class="col-sm-6">
+                        <div class="card shadow rounded-4">
+                            <div class="card-body">
+                              <h5 class="card-title">Tanggal Mulai</h5>
+                              <p class="card-text data-jam"><%= tgl_mulai%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card shadow rounded-4">
+                            <div class="card-body">
+                              <h5 class="card-title">Tanggal Selesai</h5>
+                              <p class="card-text data-jam"><%= tgl_selesai%></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="card shadow rounded-4">
+                        <div class="card-body">
+                          <h5 class="card-title">Pagi</h5>
+                          <p class="card-text data-jam"><%= data.jam_pagi%></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="card shadow rounded-4">
+                        <div class="card-body">
+                          <h5 class="card-title">Siang</h5>
+                          <p class="card-text data-jam"><%= data.jam_siang%></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card shadow rounded-4">
+                          <div class="card-body">
+                            <h5 class="card-title">Malam</h5>
+                            <p class="card-text data-jam"><%= data.jam_malam%></p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-5">
+                    <div class="col">
+                        <div class="card shadow rounded-4">
+                            <div class="card-body">
+                              <h5 class="card-title">Total Hari Pengobatan</h5>
+                              <p class="card-text data-jam"><%= data.total_hari%></p>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="row pt-5 pb-5">
+                    <div class="col">
+                        <a type="button" class="btn bg-secondary p-2 shadow-lg rm-button text-white align-self-center"  href="/createreminder">Atur Reminder</a>
+                    </div>
+                    <div class="col">
+                        <a type="button" class="btn bg-secondary p-2 shadow-lg rm-button text-white align-self-center" href="/updatereminder">Update Reminder</a>
+                    </div>
+                    <div class="col">
+                        <a type="button" class="btn btn-secondary text-white p-2 shadow-lg rm-button align-self-center"
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Jangan lupa izinkan notifikasi dahulu ya sobat!"
+                                onclick="dis()">
+                        Set Notifikasi
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        
+    </div>    
 </main>
-
-<footer>
+<svg class="ms-0 me-0" width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,133 0,133 C 115.8468899521531,135.56459330143542 231.6937799043062,138.12918660287082 318,146 C 404.3062200956938,153.87081339712918 461.07177033492826,167.04784688995215 541,154 C 620.9282296650717,140.95215311004785 724.0191387559807,101.67942583732058 820,98 C 915.9808612440193,94.32057416267942 1004.8516746411483,126.23444976076556 1107,138 C 1209.1483253588517,149.76555023923444 1324.5741626794259,141.38277511961724 1440,133 C 1440,133 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,400 C 0,400 0,266 0,266 C 100.43062200956936,250.54545454545453 200.86124401913872,235.09090909090907 305,235 C 409.1387559808613,234.90909090909093 516.9856459330144,250.1818181818182 608,245 C 699.0143540669856,239.8181818181818 773.1961722488037,214.18181818181816 875,218 C 976.8038277511963,221.81818181818184 1106.2296650717706,255.09090909090912 1205,268 C 1303.7703349282294,280.9090909090909 1371.8851674641146,273.45454545454544 1440,266 C 1440,266 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#f1a661" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>  
+<footer style="margin-bottom: 0;">
     <%- include('../../master/footer'); %>
 </footer>
-<script src="../reminder/function.js"></script>
 </body>
 </html>

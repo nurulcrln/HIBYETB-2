@@ -4,7 +4,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-import cookieParser from 'cookie-parser';
+// import cookieParser from 'cookie-parser';
 import crypto from 'crypto';
 import express from 'express';
 import User from '../models/User.js';
@@ -13,9 +13,7 @@ const app = express();
 export const profile = async (req, res) => {
   res.render('pages/user/user');
 };
-// export const register = async (req, res) => {
-//   res.render('pages/register/register', { message: '' });
-// };
+
 export const login = async (req, res) => {
   res.render('pages/login/login', { message: '' });
 };
@@ -27,22 +25,60 @@ const getHashedPassword = (password) => {
   return hash;
 };
 
-export const logoutProcess = async (req, res) => {
-  const { email } = req.body;
-  const { password } = req.body;
-  
-  const setEmailCookie = () => {
-    document.cookie = email;
-    emailCookie = document.cookie;
-  };
-
-  const setPasswordCookie = () => {
-    document.cookie = password;
-    passwordCookie = document.cookie;
-  }
-
-  
-}
+// export const isLogin = async (req, res, next) => {
+//   if (req.session.loggedin === true) {
+//     next();
+//   } else {
+//     req.session.destroy((err) => {
+//       err.res.redirect('/login');
+//     });
+//   }
+// };
+// export const isLogout = async (req, res, next) => {
+//   if (req.session.loggedin !== true) {
+//     next();
+//     return;
+//   }
+//   res.redirect('/');
+// };
+export const logout = async (req, res) => {
+  // Hapus sesi user dari broser
+  req.session.destroy((err) => {
+    if (err) {
+      return console.log(err);
+    }
+    // Hapus cokie yang masih tertinggal
+    res.clearCookie('secretname');
+    res.redirect('/login');
+  });
+};
+// export const loginAuth = async (req, res) => {
+//   const { email } = req.body;
+//   const { password } = req.body;
+//   const hashedPassword = getHashedPassword(password);
+//   if (email && password) {
+//     const user = User.findOne({
+//       where: {
+//         email: req.body.email,
+//         password: hashedPassword,
+//       },
+//     });
+//     if (user) {
+//       req.session.loggedin = true;
+//       req.session.userid = user.id;
+//       req.session.username = user.username;
+//       res.redirect('/');
+//     } else {
+//       res.render('pages/register/register', {
+//         message: 'Belum register',
+//         messageClass: 'alert-danger',
+//       });
+//     }
+//   } else {
+//     res.redirect('/login');
+//     res.end();
+//   }
+// };
 
 export const loginProcess = async (req, res) => {
   const { email } = req.body;
@@ -66,7 +102,7 @@ export const loginProcess = async (req, res) => {
     res.cookie('AuthToken', authToken);
 
     // Redirect user to the protected page
-    res.redirect('/protected');
+    res.redirect('/');
   } else {
     res.render('pages/login/login', {
       message: 'Invalid username or password',
@@ -144,46 +180,37 @@ export const createUser = (req, res) => {
   const { password } = req.body;
   const { confirmPassword } = req.body;
   const { role } = req.body;
-  if (req.username === null) return res.status(400).json({ msg: 'Nama kosong' });
-  if (req.email === null) return res.status(400).json({ msg: 'Email kosong' });
-  if (req.password === null) return res.status(400).json({ msg: 'Password kosong' });
+  if (username === null) return res.status(400).json({ msg: 'Nama kosong' });
+  if (email === null) return res.status(400).json({ msg: 'Email kosong' });
+  if (password === null) return res.status(400).json({ msg: 'Password kosong' });
 
   if (password === confirmPassword) {
-    // Check if user with the same email is also registered
-    // const rows = User.findAll();
-    // const user = () => {
-    //   if (rows.email === email) {
-    //     return true;
-    //   }
-    // };
     const hashPassword = getHashedPassword(password);
     const user = User.findOne({
       where: {
         email: req.body.email,
       },
     });
-    if (user) {
+    if (!user) {
       res.render('pages/register/register', {
         message: 'User already registered.',
         messageClass: 'alert-danger',
       });
-    } else {
-      try {
-        User.create({
-          username,
-          email,
-          nik,
-          age,
-          phone,
-          password: hashPassword,
-          role,
-        });
-        res.redirect('/login');
-        // }
-        res.status(201).json({ msg: 'User Created Successfuly' });
-      } catch (error) {
-        console.log(error.message);
-      }
+    }
+    try {
+      User.create({
+        username,
+        email,
+        nik,
+        age,
+        phone,
+        password: hashPassword,
+        role,
+      });
+      res.redirect('/login');
+      res.status(201).json({ msg: 'User Created Successfuly' });
+    } catch (error) {
+      console.log(error.message);
     }
   } else {
     res.render('pages/register/register', {

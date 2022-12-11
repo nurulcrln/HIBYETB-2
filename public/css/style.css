@@ -11,8 +11,11 @@
     .img-reminder{
         max-width: 350px;
     }
+    .img-rm{
+        max-width: 350px;
+        
+    }
 }
-
 /* body */
 *{
     font-family: "Poppins", sans-serif;
@@ -101,7 +104,7 @@
 
 .img-reminder{
     width: 600px;
-    padding-right: 0px;
+    margin-right: 0;
     
 }
 .reminder-text{
@@ -116,47 +119,59 @@
 .reminder-content{
     padding: 25px;
 }
+
 /* Footer */
 footer{
     background-color: #F1A661;
     padding: 12px;
     color: white;
+    position: absolute; 
+    left: 0 ; right: 0; 
+    margin-bottom: 0; 
 }
+
 /* Reminder */
-.clock{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 600px;
-    height: 350px;
-    background: rgba(255,2555,255,0.05);
-    overflow: hidden;
-    z-index: 10;
-    backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(255,2555,255,0.02);
-    border-left: 1px solid rgba(255,2555,255,0.02);
-    box-shadow: 5px 5px 30px rgba(255,2555,255,0.02);
-    display: flex;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+.createreminder {
+    padding-top: 200px;
+
 }
-
-.inside{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 500px;
-    height: 250px;
-    border-top: 1px solid rgba(255,2555,255,0.02);
-    border-left: 1px solid rgba(255,2555,255,0.02);
-    box-shadow: 5px 5px 30px rgba(255,2555,255,0.02);
-    display: flex;
+.reminder-jumbotron{
+    background-color: #F1A661;
+    padding-top: 50px;
+    padding-left: 0;
+    padding-right: 0;
 }
-
-
+.rm-button {
+    align-items: center;
+    align-self: center;
+}
+.jamdigital {
+    padding-top: 150px;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 50px;
+}
+.data-jam{
+    font-size: 40px;
+}
+.titikdua{
+    font-size: 100px;
+}
+.card-digital{
+    background: rgb(253,238,220);
+    background: radial-gradient(circle, rgba(253,238,220,1) 29%, rgba(241,166,97,1) 100%);
+}
+.jadwal-reminder {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.jadwal {
+    background-color: #F1A661;
+}
+.img-rm{
+    width: 800px;
+    margin-right: 0;
+    
+}

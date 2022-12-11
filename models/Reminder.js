@@ -17,7 +17,6 @@ const Reminder = db.define('reminder', {
   jam_malam: DataTypes.TIME,
   ket_malam: DataTypes.STRING,
   total_hari: DataTypes.INTEGER,
-
 }, {
   freezeTableName: true,
 });
