@@ -1,34 +1,65 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/extensions */
-/* eslint-disable consistent-return */
+/* eslint-disable prefer-destructuring */
 /* eslint-disable camelcase */
+/* eslint-disable object-shorthand */
 /* eslint-disable no-console */
+/* eslint-disable consistent-return */
+/* eslint-disable import/extensions */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable object-curly-newline */
+/* eslint-disable indent */
+/* eslint-disable no-unused-vars */
 import path from 'path';
 import fs from 'fs';
 import Dokter from '../models/Dokter.js';
 
+// Function Render Views : dokter/index.ejs
+export const idokter = async (req, res) => {
+    const rows = await Dokter.findAll();
+    res.render('pages/dokter/index', { data: rows });
+};
+
+export const listDokter = async (req, res) => {
+  const rows = await Dokter.findAll();
+  res.render('pages/dokter/listdokter', { data: rows });
+};
+
+// Function Render Views : dokter/create.ejs
+export const create = async (req, res) => {
+  res.render('pages/dokter/create', {
+    nama: '',
+    email: '',
+    foto: '',
+    spesialis: '',
+    tempat_praktik: '',
+    phone: '',
+  });
+};
+
 // Function untuk melihat semua data
 export const getDokter = async (req, res) => {
-  try {
-    const response = await Dokter.findAll();
-    res.json(response);
-  } catch (error) {
-    console.log(error.message);
-  }
+    try {
+      const response = await Dokter.findAll();
+      res.json(response);
+    } catch (error) {
+      console.log(error.message);
+    }
 };
+
 // Function untuk melihat data berdasarkan ID
 export const getDokterById = async (req, res) => {
-  try {
-    const response = await Dokter.findOne({
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.json(response);
-  } catch (error) {
-    console.log(error.message);
-  }
+    try {
+      const response = await Dokter.findOne({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.json(response);
+    } catch (error) {
+      console.log(error.message);
+    }
 };
+
 // Function untuk menambahkan data
 export const createDokter = (req, res) => {
   const { nama } = req.body;
@@ -59,12 +90,34 @@ export const createDokter = (req, res) => {
         tempat_praktik,
         phone,
       });
+      res.redirect('/dokterpage');
       res.status(201).json({ msg: 'Dokter Created Successfuly' });
     } catch (error) {
       console.log(error.message);
     }
   });
+  };
+
+// Function Render Views : dokter/update.ejs
+export const editDokter = async (req, res) => {
+  const id = req.params.id;
+  const rows = await Dokter.findOne({
+    where: {
+      id: id,
+    },
+  });
+  res.render('pages/dokter/update', {
+    id: rows.id,
+    nama: rows.nama,
+    email: rows.email,
+    foto: rows.foto,
+    url_foto: rows.url_foto,
+    spesialis: rows.spesialis,
+    tempat_praktik: rows.tempat_praktik,
+    phone: rows.phone,
+  });
 };
+
 // Function untuk mengupdate data
 export const updateDokter = async (req, res) => {
   const dokter = await Dokter.findOne({
@@ -116,11 +169,13 @@ export const updateDokter = async (req, res) => {
         id: req.params.id,
       },
     });
+    res.redirect('/dokterpage');
     res.status(200).json({ msg: 'Dokter Updated Successfuly' });
   } catch (error) {
     console.log(error.message);
   }
 };
+
 // Function untuk menghapus data
 export const deleteDokter = async (req, res) => {
   const dokter = await Dokter.findOne({
@@ -138,6 +193,7 @@ export const deleteDokter = async (req, res) => {
         id: req.params.id,
       },
     });
+    res.redirect('/dokterpage');
     res.status(200).json({ msg: 'Dokter Deleted Successfuly' });
   } catch (error) {
     console.log(error.message);

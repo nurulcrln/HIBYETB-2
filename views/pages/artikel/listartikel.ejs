@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../master/header'); %>
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-light bg-light">
+            <p class="navbar-brand" id="logo">HiByeTB</p>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2 boxSearch" type="search" placeholder="Search" aria-label="Search">
+            </form>
+        </nav>
+        <br>
+        <div id="grid" class="listSearch">
+            <% if(data.length){ for(var i=0; i< data.length; i++) {%>
+                <article>
+                    <div>
+                        <div>
+                            <img src=" <%= data[i].url_foto%>" id="img-listartikel" alt="Hak Cipta HIByeTB">
+                            <div>
+                                <h5 class="title-artikel">
+                                    <%= data[i].judul%>
+                                </h5>
+                                <a href="/listitem/<%= data[i].id%>" class="btn btn-primary"
+                                    id="detail-artikel">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <% } }else{ %>
+                    <div class="alert alert-danger" role="alert">
+                        Data Tidak Ditemukan !
+                    </div>
+                    <% } %>
+
+        </div>
+    </main>
+    <footer>
+        <%- include('../../master/footer'); %>
+    </footer>
+</body>
+
+</html>

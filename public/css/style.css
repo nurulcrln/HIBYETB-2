@@ -18,6 +18,9 @@
 }
 /* body */
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
@@ -77,10 +80,8 @@
 .article-content{
     padding: 25px;
 }
-
-/* homepage-dokter */
-.dokter-information{
-    background-color: #F1A661;
+.footer-login {
+    margin-top: 12px;
 }
 .img-doctor{
     width: 600px;
